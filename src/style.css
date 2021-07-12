@@ -1,3 +1,5 @@
+
+
 body {
     background-color: bisque;
 }
@@ -17,13 +19,16 @@ input[type='checkbox'] {
     height: 10px;
     float: right;
     margin-top: 4px;
+    color: grey;
+    transform: scale(1.5);
+    padding-right: 3px;
 }
 
 .listItemInput{
     padding: 0%;
 }
 .listInput{
-    min-width: 100%;
+    min-width: 95%;
     height: 100%;
     padding:10px 0;
     border: 0;
@@ -32,4 +37,15 @@ input[type='checkbox'] {
     font-style: italic;
     font-size: 1.0em;
     padding-left: 15px;
+  }
+  .iconRefresh{
+      float: right;
+      color: grey;
+  }
+  .iconEnter{
+      display: inline;
+      float: right;
+      margin-top: 10px;
+      color: grey;
+      padding-right: 10px;
   }

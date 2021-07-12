@@ -1,4 +1,5 @@
-import Icon from './dots.png'
+import Icon from './dots.png' 
+
 
 export default class ToDoList {
   constructor() {
@@ -13,13 +14,19 @@ export default class ToDoList {
  displayItems=() => {
    const listMain = document.createElement('ul');
    const listItemTitle = document.createElement('li');
-   listItemTitle.textContent='To Do List'
+   const iconRefresh=document.createElement('i')
+   const iconEnter=document.createElement('i')
+   iconRefresh.className='fas fa-sync iconRefresh'
+   iconEnter.className='fas fa-pen iconEnter'
+   listItemTitle.appendChild(document.createTextNode("To Do List"))
+   listItemTitle.appendChild(iconRefresh)
    const listItemInput = document.createElement('li');
    listItemInput.className='listItemInput';
    const listInput = document.createElement('input');
    listInput.type='text'
    listInput.className='listInput'
    listInput.placeholder='Add to your list'
+   listItemInput.appendChild(iconEnter)
    listItemTitle.className = 'listItem';
    listItemInput.appendChild(listInput)
    listMain.appendChild(listItemTitle)
@@ -36,9 +43,8 @@ export default class ToDoList {
      listItem.className = 'listItem';
      listItem.appendChild(checkbox);
      listItem.appendChild(document.createTextNode(item.decription));
-     const icon= new Image()
-     icon.src= Icon
-     icon.className='icon'
+     const icon= document.createElement('i')
+     icon.className='fas fa-ellipsis-v icon'
      listItem.appendChild(icon)
      listMain.appendChild(listItem);
    });
