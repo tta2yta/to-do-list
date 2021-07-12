@@ -1,6 +1,6 @@
 import './style.css';
-import ToDoList from './todolist'
+import ToDoList from './todolist';
 
-const listObj= new ToDoList();
+const listObj = new ToDoList();
 
-listObj.displayItems();
+document.getElementById('list-container').appendChild(listObj.displayItems());
