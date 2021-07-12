@@ -27,7 +27,7 @@ export default class ToDoList {
    listInput.className='listInput'
    listInput.placeholder='Add to your list'
    listItemInput.appendChild(iconEnter)
-   listItemTitle.className = 'listItem';
+   listItemTitle.className = 'listItem listItemTitle';
    listItemInput.appendChild(listInput)
    listMain.appendChild(listItemTitle)
    listMain.appendChild(listItemInput)
@@ -48,6 +48,12 @@ export default class ToDoList {
      listItem.appendChild(icon)
      listMain.appendChild(listItem);
    });
+   if(this.listItems!=[]){
+    const clearLink=document.createElement('li')
+    clearLink.className="listItem clearLink"
+    clearLink.appendChild(document.createTextNode("Clear all completed"));
+    listMain.appendChild(clearLink);
+ }
    return listMain;
  }
 }

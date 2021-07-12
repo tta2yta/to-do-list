@@ -3,6 +3,11 @@
 body {
     background-color: bisque;
 }
+.listItemTitle{
+    font-weight: 700;
+    font-size: 20px;
+    color: gray;
+}
 
 .listItem, .listItemInput{
     list-style-type: none;
@@ -22,16 +27,21 @@ input[type='checkbox'] {
     color: grey;
     transform: scale(1.5);
     padding-right: 3px;
+    cursor: crosshair;
 }
 
 .listItemInput{
     padding: 0%;
 }
 .listInput{
-    min-width: 95%;
+    min-width: 90%;
     height: 100%;
     padding:10px 0;
     border: 0;
+    margin-left: 10px;
+}
+.listInput:focus{
+    outline: none;
 }
 ::placeholder {
     font-style: italic;
@@ -41,6 +51,7 @@ input[type='checkbox'] {
   .iconRefresh{
       float: right;
       color: grey;
+      cursor: pointer;
   }
   .iconEnter{
       display: inline;
@@ -48,4 +59,14 @@ input[type='checkbox'] {
       margin-top: 10px;
       color: grey;
       padding-right: 10px;
+      cursor: pointer;
+  }
+  .clearLink{
+      text-align: center;
+      background-color: #eaeaea;
+  }
+  .clearLink:hover{
+      text-decoration: underline blue;
+      cursor: pointer;
+      
   }
