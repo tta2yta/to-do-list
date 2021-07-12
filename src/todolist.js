@@ -1,6 +1,3 @@
-import Icon from './dots.png' 
-
-
 export default class ToDoList {
   constructor() {
     this.listItems = [
@@ -14,23 +11,23 @@ export default class ToDoList {
  displayItems=() => {
    const listMain = document.createElement('ul');
    const listItemTitle = document.createElement('li');
-   const iconRefresh=document.createElement('i')
-   const iconEnter=document.createElement('i')
-   iconRefresh.className='fas fa-sync iconRefresh'
-   iconEnter.className='fas fa-pen iconEnter'
-   listItemTitle.appendChild(document.createTextNode("To Do List"))
-   listItemTitle.appendChild(iconRefresh)
+   const iconRefresh = document.createElement('i');
+   const iconEnter = document.createElement('i');
+   iconRefresh.className = 'fas fa-sync iconRefresh';
+   iconEnter.className = 'fas fa-pen iconEnter';
+   listItemTitle.appendChild(document.createTextNode('To Do List'));
+   listItemTitle.appendChild(iconRefresh);
    const listItemInput = document.createElement('li');
-   listItemInput.className='listItemInput';
+   listItemInput.className = 'listItemInput';
    const listInput = document.createElement('input');
-   listInput.type='text'
-   listInput.className='listInput'
-   listInput.placeholder='Add to your list'
-   listItemInput.appendChild(iconEnter)
+   listInput.type = 'text';
+   listInput.className = 'listInput';
+   listInput.placeholder = 'Add to your list';
+   listItemInput.appendChild(iconEnter);
    listItemTitle.className = 'listItem listItemTitle';
-   listItemInput.appendChild(listInput)
-   listMain.appendChild(listItemTitle)
-   listMain.appendChild(listItemInput)
+   listItemInput.appendChild(listInput);
+   listMain.appendChild(listItemTitle);
+   listMain.appendChild(listItemInput);
 
    this.listItems.forEach((item, index) => {
      const listItem = document.createElement('li');
@@ -43,17 +40,17 @@ export default class ToDoList {
      listItem.className = 'listItem';
      listItem.appendChild(checkbox);
      listItem.appendChild(document.createTextNode(item.decription));
-     const icon= document.createElement('i')
-     icon.className='fas fa-ellipsis-v icon'
-     listItem.appendChild(icon)
+     const icon = document.createElement('i');
+     icon.className = 'fas fa-ellipsis-v icon';
+     listItem.appendChild(icon);
      listMain.appendChild(listItem);
    });
-   if(this.listItems!=[]){
-    const clearLink=document.createElement('li')
-    clearLink.className="listItem clearLink"
-    clearLink.appendChild(document.createTextNode("Clear all completed"));
-    listMain.appendChild(clearLink);
- }
+   if (this.listItems !== []) {
+     const clearLink = document.createElement('li');
+     clearLink.className = 'listItem clearLink';
+     clearLink.appendChild(document.createTextNode('Clear all completed'));
+     listMain.appendChild(clearLink);
+   }
    return listMain;
  }
 }

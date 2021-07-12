@@ -1,80 +1,90 @@
 
-
 body {
-    background-color: bisque;
-}
-.main{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.list-container {
-    min-width: 80%;
-}
-.listItemTitle{
-    font-weight: 700;
-    font-size: 20px;
-    color: gray;
+  background-color: bisque;
 }
 
-.listItem, .listItemInput{
-    list-style-type: none;
-    background-color: white;
-    border: 1px solid grey;
-    padding: 10px;
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.list-container {
+  min-width: 80%;
+}
+
+.listItemTitle {
+  font-weight: 700;
+  font-size: 20px;
+  color: gray;
+}
+
+.listItem,
+.listItemInput {
+  list-style-type: none;
+  background-color: white;
+  border: 1px solid grey;
+  padding: 10px;
 }
 
 input[type='checkbox'] {
-    margin-right: 20px;
-  }
-.icon{
-    width: 10px;
-    height: 10px;
-    float: right;
-    margin-top: 4px;
-    color: grey;
-    transform: scale(1.5);
-    padding-right: 3px;
-    cursor: crosshair;
+  margin-right: 20px;
 }
 
-.listItemInput{
-    padding: 0%;
+.icon {
+  width: 10px;
+  height: 10px;
+  float: right;
+  margin-top: 4px;
+  color: grey;
+  transform: scale(1.5);
+  padding-right: 3px;
+  cursor: crosshair;
 }
-.listInput{
-    min-width: 90%;
-    height: 100%;
-    padding:10px 0;
-    border: 0;
-    margin-left: 10px;
+
+.listItemInput {
+  padding: 0%;
 }
-.listInput:focus{
-    outline: none;
+
+.listInput {
+  min-width: 90%;
+  height: 100%;
+  padding: 10px 0;
+  border: 0;
+  margin-left: 10px;
 }
+
+.listInput:focus {
+  outline: none;
+}
+
 ::placeholder {
-    font-style: italic;
-    font-size: 1.0em;
-    padding-left: 15px;
-  }
-  .iconRefresh{
-      float: right;
-      color: grey;
-      cursor: pointer;
-  }
-  .iconEnter{
-      display: inline;
-      float: right;
-      margin-top: 10px;
-      color: grey;
-      padding-right: 10px;
-      cursor: pointer;
-  }
-  .clearLink{
-      text-align: center;
-      background-color: #eaeaea;
-  }
-  .clearLink:hover{
-      text-decoration: underline blue;
-      cursor: pointer;
-      
-  }
+  font-style: italic;
+  font-size: 1em;
+  padding-left: 15px;
+}
+
+.iconRefresh {
+  float: right;
+  color: grey;
+  cursor: pointer;
+}
+
+.iconEnter {
+  display: inline;
+  float: right;
+  margin-top: 10px;
+  color: grey;
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+.clearLink {
+  text-align: center;
+  background-color: #eaeaea;
+}
+
+.clearLink:hover {
+  text-decoration: underline blue;
+  cursor: pointer;
+}
