@@ -6,6 +6,7 @@ module.exports = {
   entry: {
     index: './src/index.js',
     todolist: './src/todolist.js',
+    sortingitems: './src/sortingitems.js',
   },
   output: {
     filename: '[name].bundle.js',
