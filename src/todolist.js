@@ -39,6 +39,7 @@ export default class ToDoList {
      checkbox.value = 'value';
      checkbox.id = `checkbox-${index}`;
      listItem.id = item.index;
+     listItem.draggable=true
      listItem.className = 'listItem';
      listItem.addEventListener("dragstart", handelDragStart, false)
      listItem.addEventListener("dragover", drag_handeler, false )
