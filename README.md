@@ -27,7 +27,7 @@ Todo JS is a JavaScript project that is intended to showcase an understanding of
 
 ## 🔴 Live Demo <a name = "live"></a>
 
-**Click [here](https://todo-js-temesghen.netlify.app/) in order to see a Live Demo of this project.**
+**Click [here](https://rawcdn.githack.com/tta2yta/to-do-list/e6d2bec004cdba2b4e19f70cf82d4c15a471b131/src/index.html) in order to see a Live Demo of this project.**
 
 ## 🔧 Built with<a name = "with"></a>
 
