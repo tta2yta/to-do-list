@@ -1,14 +1,17 @@
+import { drop } from "lodash";
 
-export default allowDrop=(ev)=>{
+const allowDrop=(ev)=>{
     ev.preventDefault();
 }
 
-export default  drag_handeler=(ev)=>{
+ const drag_handeler=(ev)=>{
     ev.preventDefault();
     ev.dataTransfer.dropEffect="move"
 }
 
-export default drop_handler=(ev)=>{
+ const drop_handler=(ev)=>{
     const data=ev.dataTransfer.getData("text/plain");
     ev.target.appendChild(document.getElementById(data));
 }
+
+export{ allowDrop, drag_handeler, drop_handler} 
