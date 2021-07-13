@@ -32,4 +32,11 @@ function handelDragStart(ev){
       }
 }
 
+  function addHandlers(elem) {
+    elem.addEventListener('dragstart', handleDragStart, false);
+    elem.addEventListener('dragover', handleDragOver, false);
+    elem.addEventListener('drop', handleDrop, false);
+  
+  }
+
 export{handelDragStart, drag_handeler, drop_handler} 
