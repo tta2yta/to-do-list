@@ -40,7 +40,7 @@ export default class ToDoList {
      checkbox.id = `checkbox-${index}`;
      listItem.id = item.index;
      listItem.className = 'listItem';
-     listItem.addEventListener("dragstart", handelDragStart)
+     listItem.addEventListener("dragstart", handelDragStart, false)
      listItem.addEventListener("dragover", drag_handeler, false )
      listItem.addEventListener("drop", drop_handler,false )
      listItem.appendChild(checkbox);

@@ -1,6 +1,9 @@
 import { drop } from "lodash";
 
+
+const curObj={curr:null}
 function handelDragStart(ev){
+    curObj.curr=this
     ev.dataTransfer.effectAllowed='move';
     ev.dataTransfer.setData('text/HTML', this.outerHTML)
 
@@ -13,9 +16,20 @@ function handelDragStart(ev){
 }
 
  function drop_handler(ev){
-    const data=ev.dataTransfer.getData("text/plain");
-    console.log(data)
-    // ev.target.appendChild(document.getElementById(data));
+    if (ev.stopPropagation) {
+        ev.stopPropagation(); 
+      }
+
+      if (curObj.curr != this) {
+        this.parentNode.removeChild(curObj.curr);
+        var dropHTML = ev.dataTransfer.getData('text/html');
+        console.log(dropHTML)
+        this.insertAdjacentHTML('beforebegin',dropHTML);
+        var dropElem = this.previousSibling;
+        console.log(this)
+        console.log(dropElem)
+        
+      }
 }
 
 export{handelDragStart, drag_handeler, drop_handler} 
