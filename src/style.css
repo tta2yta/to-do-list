@@ -18,6 +18,9 @@ body {
   font-size: 20px;
   color: gray;
 }
+.listItem{
+  cursor: move;
+}
 
 .listItem,
 .listItemInput {
@@ -87,4 +90,11 @@ input[type='checkbox'] {
 .clearLink:hover {
   text-decoration: underline blue;
   cursor: pointer;
+}
+
+.column.dragElem {
+  opacity: 0.4;
+}
+.column.over {
+  border-top: 2px solid blue;
 }
