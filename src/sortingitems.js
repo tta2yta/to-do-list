@@ -1,17 +1,21 @@
 import { drop } from "lodash";
 
-const allowDrop=(ev)=>{
-    ev.preventDefault();
+function handelDragStart(ev){
+    ev.dataTransfer.effectAllowed='move';
+    ev.dataTransfer.setData('text/HTML', this.outerHTML)
+
 }
 
- const drag_handeler=(ev)=>{
+ function drag_handeler(ev){
     ev.preventDefault();
     ev.dataTransfer.dropEffect="move"
+    return false;
 }
 
- const drop_handler=(ev)=>{
+ function drop_handler(ev){
     const data=ev.dataTransfer.getData("text/plain");
-    ev.target.appendChild(document.getElementById(data));
+    console.log(data)
+    // ev.target.appendChild(document.getElementById(data));
 }
 
-export{ allowDrop, drag_handeler, drop_handler} 
+export{handelDragStart, drag_handeler, drop_handler} 

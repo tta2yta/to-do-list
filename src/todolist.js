@@ -1,5 +1,4 @@
-import {drop_handler} from './sortingitems'
-import {drag_handeler} from './sortingitems'
+import {drop_handler, handelDragStart, drag_handeler } from './sortingitems'
 
 export default class ToDoList {
   constructor() {
@@ -41,8 +40,9 @@ export default class ToDoList {
      checkbox.id = `checkbox-${index}`;
      listItem.id = item.index;
      listItem.className = 'listItem';
-     listItem.addEventListener("drop", drop_handler )
-     listItem.addEventListener("dragover", drag_handeler )
+     listItem.addEventListener("dragstart", handelDragStart)
+     listItem.addEventListener("dragover", drag_handeler, false )
+     listItem.addEventListener("drop", drop_handler,false )
      listItem.appendChild(checkbox);
      listItem.appendChild(document.createTextNode(item.decription));
      const icon = document.createElement('i');
@@ -58,4 +58,9 @@ export default class ToDoList {
    }
    return listMain;
  }
+
+ ondragstart(event){
+alert('hello')
+}
+
 }
