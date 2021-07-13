@@ -8,7 +8,7 @@ export default  drag_handeler=(ev)=>{
     ev.dataTransfer.dropEffect="move"
 }
 
-export default drop_handler=()=>{
+export default drop_handler=(ev)=>{
     const data=ev.dataTransfer.getData("text/plain");
     ev.target.appendChild(document.getElementById(data));
 }
