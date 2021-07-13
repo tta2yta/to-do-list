@@ -6,12 +6,14 @@ function handelDragStart(ev){
     curObj.curr=this
     ev.dataTransfer.effectAllowed='move';
     ev.dataTransfer.setData('text/HTML', this.outerHTML)
+    this.classList.add('dragElem');
 
 }
 
  function drag_handeler(ev){
     ev.preventDefault();
     ev.dataTransfer.dropEffect="move"
+    this.classList.add('over');
     return false;
 }
 
@@ -30,6 +32,8 @@ function handelDragStart(ev){
         console.log(dropElem)
         
       }
+      this.classList.remove('over');
+  return false;
 }
 
   function addHandlers(elem) {
