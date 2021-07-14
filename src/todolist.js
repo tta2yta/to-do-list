@@ -8,8 +8,8 @@ export default class ToDoList {
     ];
   }
 
-  setListItems=(obj)=>{
-    localStorage.setItem('todolist', JSON.stringify(this.arrBook));
+  setListItems(obj=null){
+    localStorage.setItem('todolist', JSON.stringify(obj));
   }
 
   getListItmes=()=>{
