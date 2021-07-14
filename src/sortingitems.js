@@ -48,8 +48,8 @@ function handelDragStart(ev){
   return false;
 }
 function handleDragLeave(e) {
-    this.classList.remove('dragover-before');
-    this.classList.remove('dragover-after');
+    this.classList.remove('over-before');
+    this.classList.remove('over-after');
 }
 function handleDragEnd(e) {
     this.classList.remove('over-before');
