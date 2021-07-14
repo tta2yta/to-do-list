@@ -30,11 +30,9 @@ function dropHandler(ev) {
   if (curObj.curr !== this) {
     this.parentNode.removeChild(curObj.curr);
     if (this.classList.contains('over-before')) {
-      console.log('first');
       this.insertAdjacentHTML('beforebegin', ev.dataTransfer.getData('text/html'));
       addHandlers(this.previousElementSibling);
     } else if (this.classList.contains('over-after')) {
-      console.log('second');
       this.insertAdjacentHTML('afterend', ev.dataTransfer.getData('text/html'));
       addHandlers(this.nextElementSibling);
     }

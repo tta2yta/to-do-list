@@ -36,19 +36,19 @@ export default class ToDoList {
      checkbox.name = `checkbox-${index}`;
      checkbox.value = 'value';
      checkbox.id = `checkbox-${index}`;
-     checkbox.className="checkbox"
+     checkbox.className = 'checkbox';
      listItem.id = item.index;
      listItem.draggable = true;
      listItem.className = 'listItem';
      listItem.addEventListener('click', this.activeList, false);
      listItem.appendChild(checkbox);
-     const textDesc=document.createElement('span');
-     textDesc.className=`textDesc-${index}`
-     const t = document.createTextNode(item.decription); 
-     textDesc.appendChild(t)
+     const textDesc = document.createElement('span');
+     textDesc.className = `textDesc-${index}`;
+     const t = document.createTextNode(item.decription);
+     textDesc.appendChild(t);
      listItem.appendChild(textDesc);
      const icon = document.createElement('svg');
-     icon.id= `icon-${index}`
+     icon.id = `icon-${index}`;
      icon.className = 'fas fa-ellipsis-v icon';
      listItem.appendChild(icon);
      listMain.appendChild(listItem);
@@ -62,15 +62,14 @@ export default class ToDoList {
    return listMain;
  }
 
-  activeList(){
-   document.querySelectorAll('.listItem').forEach(item=>{
-     item.style.backgroundColor='white'
-   })
-  document.querySelectorAll(".icon").forEach(item=>{
-    item.setAttribute("class","fas fa-ellipsis-v icon");
-   })
-   document.getElementById(this.id).style.backgroundColor='#cf9e98'
-   console.log(this.getElementsByTagName('svg')[0].className)
-   document.getElementById(`icon-${this.id - 1}`).setAttribute("class","fas fa-trash icon");
+ activeList() {
+   document.querySelectorAll('.listItem').forEach((item) => {
+     item.style.backgroundColor = 'white';
+   });
+   document.querySelectorAll('.icon').forEach((item) => {
+     item.setAttribute('class', 'fas fa-ellipsis-v icon');
+   });
+   document.getElementById(this.id).style.backgroundColor = '#fcf9f9';
+   document.getElementById(`icon-${this.id - 1}`).setAttribute('class', 'fas fa-trash icon');
  }
 }

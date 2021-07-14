@@ -1,6 +1,6 @@
 import './style.css';
 import ToDoList from './todolist';
-import {addCheckboxhandler} from './checkstatus'
+import { addCheckboxhandler } from './checkstatus';
 import { addHandlers } from './sortingitems';
 import '@fortawesome/fontawesome-free/js/fontawesome';
 import '@fortawesome/fontawesome-free/js/solid';
