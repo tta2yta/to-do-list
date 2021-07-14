@@ -16,13 +16,13 @@ function handelDragStart(ev){
     this.classList.add('over');
     const top=this.getBoundingClientRect().top;
     const bottom=this.getBoundingClientRect().bottom;
-    if(e.clientY<(top+bottom)/2) {
+    if(ev.clientY<(top+bottom)/2) {
         this.classList.add('over-before');
         this.classList.remove('over-after');
     }
     else {
-        this.classList.add('over-right');
-        this.classList.remove('over-after');
+        this.classList.add('over-after');
+		this.classList.remove('over-before');
     }
     return false;
 }
@@ -34,11 +34,11 @@ function handelDragStart(ev){
 
       if (curObj.curr != this) {
         if(this.classList.contains('over-before')) {
-            this.insertAdjacentHTML('beforebegin',e.dataTransfer.getData('text/html'));
+            this.insertAdjacentHTML('beforebegin',ev.dataTransfer.getData('text/html'));
             addHandlers(this.previousElementSibling);
         }
         else if(this.classList.contains('over-after')) {
-            this.insertAdjacentHTML('afterend',e.dataTransfer.getData('text/html'));
+            this.insertAdjacentHTML('afterend',ev.dataTransfer.getData('text/html'));
             addHandlers(this.nextElementSibling);
         }
         
@@ -58,8 +58,8 @@ function handleDragEnd(e) {
   function addHandlers(elem) {
     elem.addEventListener('dragstart', handelDragStart, false);
     elem.addEventListener('dragover', drag_handeler, false);
-    elem.addEventListener('drop', drop_handler, false);
     elem.addEventListener('dragleave', handleDragLeave, false);
+    elem.addEventListener('drop', drop_handler, false);
     elem.addEventListener('dragend', handleDragEnd, false);
   
   }
