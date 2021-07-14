@@ -8,11 +8,11 @@ function checkComplete() {
     const t = document.createTextNode('✔ ');
     thickSyb.appendChild(t);
     const listObj = new ToDoList();
-    const objIndex = listObj.listItems.find((obj => obj.index == this.parentNode.id));
+    const objIndex = listObj.getListItmes().find((obj => obj.index == this.parentNode.id));
     objIndex.completed=true;
+    listObj.setListItems(listObj)
     this.parentNode.replaceChild(thickSyb, this);
     
-   
   }
 }
 
