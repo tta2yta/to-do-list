@@ -8,6 +8,17 @@ export default class ToDoList {
     ];
   }
 
+  setListItems=(obj)=>{
+    localStorage.setItem('todolist', JSON.stringify(this.arrBook));
+  }
+
+  getListItmes=()=>{
+    this.listItems = JSON.parse(localStorage.getItem('todolist'));
+    if (this.listItems === null) {
+      this.listItems = [];
+    }
+  }
+
  displayItems=() => {
    const listMain = document.createElement('ul');
    const listItemTitle = document.createElement('li');
