@@ -47,7 +47,8 @@ export default class ToDoList {
      const t = document.createTextNode(item.decription); 
      textDesc.appendChild(t)
      listItem.appendChild(textDesc);
-     const icon = document.createElement('i');
+     const icon = document.createElement('svg');
+     icon.id= `icon-${index}`
      icon.className = 'fas fa-ellipsis-v icon';
      listItem.appendChild(icon);
      listMain.appendChild(listItem);
@@ -65,6 +66,11 @@ export default class ToDoList {
    document.querySelectorAll('.listItem').forEach(item=>{
      item.style.backgroundColor='white'
    })
+  document.querySelectorAll(".icon").forEach(item=>{
+    item.setAttribute("class","fas fa-ellipsis-v icon");
+   })
    document.getElementById(this.id).style.backgroundColor='#cf9e98'
+   console.log(this.getElementsByTagName('svg')[0].className)
+   document.getElementById(`icon-${this.id - 1}`).setAttribute("class","fas fa-trash icon");
  }
 }
