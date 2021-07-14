@@ -37,4 +37,4 @@ function addCheckboxhandler(elem) {
   elem.addEventListener('click', checkComplete, false);
 }
 
-export { checkComplete, addCheckboxhandler };
+export { checkComplete, unCheckComplete, addCheckboxhandler };

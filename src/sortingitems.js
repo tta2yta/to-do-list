@@ -1,3 +1,4 @@
+import { checkComplete, unCheckComplete} from './checkstatus'
 const curObj = { curr: null };
 
 function handelDragStart(ev) {
@@ -56,6 +57,12 @@ function addHandlers(elem) {
   elem.addEventListener('dragleave', handleDragLeave, false);
   elem.addEventListener('drop', dropHandler, false);
   elem.addEventListener('dragend', handleDragEnd, false);
+  if(elem.querySelector('.checkbox') !== null){
+    elem.querySelector('.checkbox').addEventListener('click', checkComplete, false)
+  }
+  if( elem.querySelector('.thickSyb') !== null){
+    elem.querySelector('.thickSyb').addEventListener('click', unCheckComplete, false)
+  }
 }
 
 export {
