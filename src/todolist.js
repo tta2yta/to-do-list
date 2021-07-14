@@ -9,6 +9,7 @@ export default class ToDoList {
   }
 
   setListItems(obj=null){
+    console.log(obj)
     localStorage.setItem('todolist', JSON.stringify(obj));
   }
 

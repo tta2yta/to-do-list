@@ -10,8 +10,8 @@ function checkComplete() {
     thickSyb.addEventListener('click', unCheckComplete, false);
     const t = document.createTextNode('✔ ');
     thickSyb.appendChild(t);
-  const objIndex = listObj.listItems.filter((obj => obj.index == this.parentNode.id));
-    objIndex.completed=true;
+    const objIndex = listObj.listItems.findIndex((obj => obj.index == this.parentNode.id));
+    listObj.listItems[objIndex].completed=true
     listObj.setListItems(listObj)
     this.parentNode.replaceChild(thickSyb, this);
     
@@ -26,8 +26,9 @@ function unCheckComplete() {
   checkbox.id = `checkbox-${this.parentNode.id - 1}`;
   checkbox.className = 'checkbox';
   document.querySelector(`.textDesc-${this.parentNode.id - 1}`).classList.remove('completed');
-  const objIndex = listObj.listItems.filter((obj => obj.index == this.parentNode.id));
-  objIndex.completed=false;
+  const objIndex = listObj.listItems.findIndex((obj => obj.index == this.parentNode.id));
+  listObj.listItems[objIndex].completed=false
+  listObj.setListItems(listObj)
   this.parentNode.replaceChild(checkbox, this);
   checkbox.addEventListener('click', checkComplete, false);
 }
