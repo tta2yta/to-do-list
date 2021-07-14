@@ -23,13 +23,11 @@ function handelDragStart(ev){
       }
 
       if (curObj.curr != this) {
-        this.parentNode.removeChild(curObj.curr);
+        curObj.curr.parentNode.removeChild(curObj.curr);
         var dropHTML = ev.dataTransfer.getData('text/html');
-        console.log(dropHTML)
         this.insertAdjacentHTML('beforebegin',dropHTML);
         var dropElem = this.previousSibling;
-        console.log(this)
-        console.log(dropElem)
+        addHandlers(dropElem);
         
       }
       this.classList.remove('over');
@@ -37,10 +35,10 @@ function handelDragStart(ev){
 }
 
   function addHandlers(elem) {
-    elem.addEventListener('dragstart', handleDragStart, false);
-    elem.addEventListener('dragover', handleDragOver, false);
-    elem.addEventListener('drop', handleDrop, false);
+    elem.addEventListener('dragstart', handelDragStart, false);
+    elem.addEventListener('dragover', drag_handeler, false);
+    elem.addEventListener('drop', drop_handler, false);
   
   }
 
-export{handelDragStart, drag_handeler, drop_handler} 
+export{handelDragStart, drag_handeler, drop_handler, addHandlers} 

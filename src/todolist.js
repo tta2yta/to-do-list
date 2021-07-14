@@ -41,9 +41,9 @@ export default class ToDoList {
      listItem.id = item.index;
      listItem.draggable=true
      listItem.className = 'listItem';
-     listItem.addEventListener("dragstart", handelDragStart, false)
-     listItem.addEventListener("dragover", drag_handeler, false )
-     listItem.addEventListener("drop", drop_handler,false )
+    //  listItem.addEventListener("dragstart", handelDragStart, false)
+    //  listItem.addEventListener("dragover", drag_handeler, false )
+    //  listItem.addEventListener("drop", drop_handler,false )
      listItem.appendChild(checkbox);
      listItem.appendChild(document.createTextNode(item.decription));
      const icon = document.createElement('i');
