@@ -33,14 +33,18 @@ function handelDragStart(ev){
       }
 
       if (curObj.curr != this) {
-        curObj.curr.parentNode.removeChild(curObj.curr);
-        var dropHTML = ev.dataTransfer.getData('text/html');
-        this.insertAdjacentHTML('beforebegin',dropHTML);
-        var dropElem = this.previousSibling;
-        addHandlers(dropElem);
+        if(this.classList.contains('over-before')) {
+            this.insertAdjacentHTML('beforebegin',e.dataTransfer.getData('text/html'));
+            addHandlers(this.previousElementSibling);
+        }
+        else if(this.classList.contains('over-after')) {
+            this.insertAdjacentHTML('afterend',e.dataTransfer.getData('text/html'));
+            addHandlers(this.nextElementSibling);
+        }
         
       }
-      this.classList.remove('over');
+      this.classList.remove('over-before');
+      this.classList.remove('over-after');
   return false;
 }
 function handleDragLeave(e) {
