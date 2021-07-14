@@ -1,70 +1,65 @@
-import { drop } from "lodash";
+const curObj = { curr: null };
 
-
-const curObj={curr:null}
-function handelDragStart(ev){
-    curObj.curr=this
-    ev.dataTransfer.effectAllowed='move';
-    ev.dataTransfer.setData('text/HTML', this.outerHTML)
-    this.classList.add('dragElem');
-
+function handelDragStart(ev) {
+  curObj.curr = this;
+  ev.dataTransfer.effectAllowed = 'move';
+  ev.dataTransfer.setData('text/HTML', this.outerHTML);
+  this.classList.add('dragElem');
 }
 
- function drag_handeler(ev){
-    ev.preventDefault();
-    ev.dataTransfer.dropEffect="move"
-    const top=this.getBoundingClientRect().top;
-    const bottom=this.getBoundingClientRect().bottom;
-    if(ev.clientY<(top+bottom)/2) {
-        this.classList.add('over-before');
-        this.classList.remove('over-after');
-    }
-    else {
-        this.classList.add('over-after');
-		this.classList.remove('over-before');
-    }
-    return false;
-}
-
- function drop_handler(ev){
-    if (ev.stopPropagation) {
-        ev.stopPropagation(); 
-      }
-
-      if (curObj.curr != this) {
-        this.parentNode.removeChild(curObj.curr);
-		const dropHTML = ev.dataTransfer.getData('text/html');
-        if(this.classList.contains('over-before')) {
-            console.log("first")
-            this.insertAdjacentHTML('beforebegin',ev.dataTransfer.getData('text/html'));
-            addHandlers(this.previousElementSibling);
-        }
-        else if(this.classList.contains('over-after')) {
-            console.log("second")
-            this.insertAdjacentHTML('afterend',ev.dataTransfer.getData('text/html'));
-            addHandlers(this.nextElementSibling);
-        }
-        
-      }
-      this.classList.remove('over-before');
-      this.classList.remove('over-after');
+function dragHandeler(ev) {
+  ev.preventDefault();
+  ev.dataTransfer.dropEffect = 'move';
+  const { top } = this.getBoundingClientRect();
+  const { bottom } = this.getBoundingClientRect();
+  if (ev.clientY < (top + bottom) / 2) {
+    this.classList.add('over-before');
+    this.classList.remove('over-after');
+  } else {
+    this.classList.add('over-after');
+    this.classList.remove('over-before');
+  }
   return false;
 }
-function handleDragLeave(e) {
-    this.classList.remove('over-before');
-    this.classList.remove('over-after');
-}
-function handleDragEnd(e) {
-    this.classList.remove('over-before');
-    this.classList.remove('over-after');
-}
-  function addHandlers(elem) {
-    elem.addEventListener('dragstart', handelDragStart, false);
-    elem.addEventListener('dragover', drag_handeler, false);
-    elem.addEventListener('dragleave', handleDragLeave, false);
-    elem.addEventListener('drop', drop_handler, false);
-    elem.addEventListener('dragend', handleDragEnd, false);
-  
+
+function dropHandler(ev) {
+  if (ev.stopPropagation) {
+    ev.stopPropagation();
   }
 
-export{handelDragStart, drag_handeler, drop_handler, addHandlers} 
+  if (curObj.curr !== this) {
+    this.parentNode.removeChild(curObj.curr);
+    if (this.classList.contains('over-before')) {
+      console.log('first');
+      this.insertAdjacentHTML('beforebegin', ev.dataTransfer.getData('text/html'));
+      addHandlers(this.previousElementSibling);
+    } else if (this.classList.contains('over-after')) {
+      console.log('second');
+      this.insertAdjacentHTML('afterend', ev.dataTransfer.getData('text/html'));
+      addHandlers(this.nextElementSibling);
+    }
+  }
+  this.classList.remove('over-before');
+  this.classList.remove('over-after');
+  return false;
+}
+function handleDragLeave() {
+  this.classList.remove('over-before');
+  this.classList.remove('over-after');
+}
+function handleDragEnd() {
+  this.classList.remove('over-before');
+  this.classList.remove('over-after');
+}
+
+function addHandlers(elem) {
+  elem.addEventListener('dragstart', handelDragStart, false);
+  elem.addEventListener('dragover', dragHandeler, false);
+  elem.addEventListener('dragleave', handleDragLeave, false);
+  elem.addEventListener('drop', dropHandler, false);
+  elem.addEventListener('dragend', handleDragEnd, false);
+}
+
+export {
+  handelDragStart, dragHandeler, dropHandler, addHandlers,
+};
