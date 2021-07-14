@@ -41,7 +41,10 @@ export default class ToDoList {
      listItem.draggable = true;
      listItem.className = 'listItem';
      listItem.appendChild(checkbox);
-     listItem.appendChild(document.createTextNode(item.decription));
+     const textDesc=document.createElement('span');
+     const t = document.createTextNode(item.decription); 
+     textDesc.appendChild(t)
+     listItem.appendChild(textDesc);
      const icon = document.createElement('i');
      icon.className = 'fas fa-ellipsis-v icon';
      listItem.appendChild(icon);
