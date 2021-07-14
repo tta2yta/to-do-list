@@ -42,6 +42,7 @@ export default class ToDoList {
      listItem.className = 'listItem';
      listItem.appendChild(checkbox);
      const textDesc=document.createElement('span');
+     textDesc.className='textDesc'
      const t = document.createTextNode(item.decription); 
      textDesc.appendChild(t)
      listItem.appendChild(textDesc);
