@@ -92,15 +92,15 @@ input[type='checkbox'] {
   cursor: pointer;
 }
 
-.column.dragElem {
+.listItem.dragElem {
   opacity: 0.4;
 }
-/* .column.over {
+.listItem.over {
   border-top: 2px solid blue;
-} */
-.column.over-before {
+}
+.listItem.over-before {
   border-top: 2px solid red;
 }
-.column.over-after {
+.listItem.over-after {
   border-bottom: 2px solid green;
 }
