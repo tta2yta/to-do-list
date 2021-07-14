@@ -43,7 +43,14 @@ function handelDragStart(ev){
       this.classList.remove('over');
   return false;
 }
-
+function handleDragLeave(e) {
+    this.classList.remove('dragover-before');
+    this.classList.remove('dragover-after');
+}
+function handleDragEnd(e) {
+    this.classList.remove('over-before');
+    this.classList.remove('over-after');
+}
   function addHandlers(elem) {
     elem.addEventListener('dragstart', handelDragStart, false);
     elem.addEventListener('dragover', drag_handeler, false);
