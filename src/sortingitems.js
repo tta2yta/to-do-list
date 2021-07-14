@@ -13,7 +13,6 @@ function handelDragStart(ev){
  function drag_handeler(ev){
     ev.preventDefault();
     ev.dataTransfer.dropEffect="move"
-    this.classList.add('over');
     const top=this.getBoundingClientRect().top;
     const bottom=this.getBoundingClientRect().bottom;
     if(ev.clientY<(top+bottom)/2) {
@@ -33,11 +32,15 @@ function handelDragStart(ev){
       }
 
       if (curObj.curr != this) {
+        this.parentNode.removeChild(curObj.curr);
+		const dropHTML = ev.dataTransfer.getData('text/html');
         if(this.classList.contains('over-before')) {
+            console.log("first")
             this.insertAdjacentHTML('beforebegin',ev.dataTransfer.getData('text/html'));
             addHandlers(this.previousElementSibling);
         }
         else if(this.classList.contains('over-after')) {
+            console.log("second")
             this.insertAdjacentHTML('afterend',ev.dataTransfer.getData('text/html'));
             addHandlers(this.nextElementSibling);
         }
