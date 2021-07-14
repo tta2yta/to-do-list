@@ -95,6 +95,12 @@ input[type='checkbox'] {
 .column.dragElem {
   opacity: 0.4;
 }
-.column.over {
+/* .column.over {
   border-top: 2px solid blue;
+} */
+.column.over-before {
+  border-top: 2px solid red;
+}
+.column.over-after {
+  border-bottom: 2px solid green;
 }

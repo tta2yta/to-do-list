@@ -14,6 +14,16 @@ function handelDragStart(ev){
     ev.preventDefault();
     ev.dataTransfer.dropEffect="move"
     this.classList.add('over');
+    const top=this.getBoundingClientRect().top;
+    const bottom=this.getBoundingClientRect().bottom;
+    if(e.clientY<(top+bottom)/2) {
+        this.classList.add('over-before');
+        this.classList.remove('over-after');
+    }
+    else {
+        this.classList.add('over-right');
+        this.classList.remove('over-after');
+    }
     return false;
 }
 
