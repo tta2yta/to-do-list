@@ -15,9 +15,8 @@ export default class ToDoList {
   getListItmes=()=>{
     this.listItems = JSON.parse(localStorage.getItem('todolist'));
     if (this.listItems === null) {
-     return this.listItems = [];
+       this.listItems = [];
     }
-    return this.listItems
   }
 
  displayItems=() => {
@@ -40,8 +39,7 @@ export default class ToDoList {
    listItemInput.appendChild(listInput);
    listMain.appendChild(listItemTitle);
    listMain.appendChild(listItemInput);
-
-   this.getListItmes().forEach((item, index) => {
+   this.listItems.forEach((item, index) => {
      const listItem = document.createElement('li');
      const checkbox = document.createElement('input');
      checkbox.type = 'checkbox';
@@ -65,7 +63,7 @@ export default class ToDoList {
      listItem.appendChild(icon);
      listMain.appendChild(listItem);
    });
-   if (this.getListItmes() !== []) {
+   if (this.listItems !== []) {
      const clearLink = document.createElement('li');
      clearLink.className = 'listItem clearLink';
      clearLink.appendChild(document.createTextNode('Clear all completed'));
