@@ -104,3 +104,12 @@ input[type='checkbox'] {
 .listItem.over-after {
   border-bottom: 2px solid green;
 }
+.completed{
+  border-bottom: 5px solid red;
+  background-color: #ffffff;
+  color: #9e9e9e;
+}
+span:before {
+  content: "✔";
+  text-decoration: none;
+}
