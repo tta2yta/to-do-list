@@ -1,5 +1,4 @@
 function checkComplete(ev){
-console.log(this.parentNode)
 if(document.getElementById(this.id).checked){
 this.parentNode.querySelector(`.textDesc-${this.parentNode.id - 1}`).classList.add('completed')
 const thickSyb=document.createElement('span');

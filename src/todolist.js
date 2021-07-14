@@ -40,6 +40,7 @@ export default class ToDoList {
      listItem.id = item.index;
      listItem.draggable = true;
      listItem.className = 'listItem';
+     listItem.addEventListener('click', this.activeList, false);
      listItem.appendChild(checkbox);
      const textDesc=document.createElement('span');
      textDesc.className=`textDesc-${index}`
@@ -58,5 +59,12 @@ export default class ToDoList {
      listMain.appendChild(clearLink);
    }
    return listMain;
+ }
+
+  activeList(){
+   document.querySelectorAll('.listItem').forEach(item=>{
+     item.style.backgroundColor='white'
+   })
+   document.getElementById(this.id).style.backgroundColor='#cf9e98'
  }
 }
