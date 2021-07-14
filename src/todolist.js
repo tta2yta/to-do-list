@@ -36,6 +36,7 @@ export default class ToDoList {
      checkbox.name = `checkbox-${index}`;
      checkbox.value = 'value';
      checkbox.id = `checkbox-${index}`;
+     checkbox.className="checkbox"
      listItem.id = item.index;
      listItem.draggable = true;
      listItem.className = 'listItem';
