@@ -15,8 +15,9 @@ export default class ToDoList {
   getListItmes=()=>{
     this.listItems = JSON.parse(localStorage.getItem('todolist'));
     if (this.listItems === null) {
-      this.listItems = [];
+     return this.listItems = [];
     }
+    return this.listItems
   }
 
  displayItems=() => {
