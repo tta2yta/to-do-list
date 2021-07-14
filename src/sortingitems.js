@@ -55,6 +55,8 @@ function handleDragEnd(e) {
     elem.addEventListener('dragstart', handelDragStart, false);
     elem.addEventListener('dragover', drag_handeler, false);
     elem.addEventListener('drop', drop_handler, false);
+    elem.addEventListener('dragleave', handleDragLeave, false);
+    elem.addEventListener('dragend', handleDragEnd, false);
   
   }
 
