@@ -41,7 +41,7 @@ export default class ToDoList {
    listMain.appendChild(listItemTitle);
    listMain.appendChild(listItemInput);
 
-   this.listItems.forEach((item, index) => {
+   this.getListItmes().forEach((item, index) => {
      const listItem = document.createElement('li');
      const checkbox = document.createElement('input');
      checkbox.type = 'checkbox';
@@ -65,7 +65,7 @@ export default class ToDoList {
      listItem.appendChild(icon);
      listMain.appendChild(listItem);
    });
-   if (this.listItems !== []) {
+   if (this.getListItmes() !== []) {
      const clearLink = document.createElement('li');
      clearLink.className = 'listItem clearLink';
      clearLink.appendChild(document.createTextNode('Clear all completed'));
