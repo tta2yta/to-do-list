@@ -1,15 +1,14 @@
 function checkComplete(ev){
-console.log("jjj")
-
-this.border=0
-this.parentNode.querySelector('.textDesc').classList.add('completed')
+console.log(this.parentNode)
+if(document.getElementById(this.id).checked){
+this.parentNode.querySelector(`.textDesc-${this.parentNode.id - 1}`).classList.add('completed')
 const thickSyb=document.createElement('span');
 thickSyb.className='thickSyb'
 thickSyb.addEventListener('click', unCheckComplete, false);
 const t = document.createTextNode("✔ "); 
 thickSyb.appendChild(t)
 this.parentNode.replaceChild(thickSyb, this);
-
+}
 
 }
 
@@ -20,8 +19,11 @@ function unCheckComplete(e){
      checkbox.value = 'value';
      checkbox.id = `checkbox-${this.parentNode.id - 1}`;
      checkbox.className="checkbox"
+     document.querySelector(`.textDesc-${this.parentNode.id - 1}`).classList.remove('completed')
      this.parentNode.replaceChild(checkbox, this);
+     
      checkbox.addEventListener('click', checkComplete, false);
+     
 
 }
 
