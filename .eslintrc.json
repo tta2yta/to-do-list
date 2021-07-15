@@ -13,10 +13,15 @@
     "rules": {
       "no-shadow": "off",
       "no-param-reassign": "off",
-      "eol-last": "off"
+      "eol-last": "off",
+      "no-use-before-define": ["error", {"functions": false, "classes": true}],
+      "max-len": ["error", { "code": 320 }],
+      "class-methods-use-this":"off",
+      "import/no-cycle":"off"
     },
     "ignorePatterns": [
       "dist/",
       "build/"
     ]
+    
   }

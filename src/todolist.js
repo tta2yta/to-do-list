@@ -1,11 +1,30 @@
+import { unCheckComplete } from './checkstatus';
+
 export default class ToDoList {
   constructor() {
-    this.listItems = [
-      { decription: 'Double-tap to edit', completed: false, index: 1 },
-      { decription: "Drag 'n drop to reorder your list", completed: false, index: 2 },
-      { decription: 'Manage all your lists in one place', completed: false, index: 3 },
-      { decription: 'Resync to clear out the old', completed: false, index: 4 },
-    ];
+    this.listItems = [];
+  }
+
+  setListItems(obj = null) {
+    localStorage.setItem('todolist', JSON.stringify(obj));
+  }
+
+  getListItmes=() => {
+    const obj = JSON.parse(localStorage.getItem('todolist'));
+    if (obj === null) {
+      this.listItems = [
+        { decription: 'Double-tap to edit', completed: false, index: 1 },
+        { decription: "Drag 'n drop to reorder your list", completed: false, index: 2 },
+        { decription: 'Manage all your lists in one place', completed: false, index: 3 },
+        { decription: 'Resync to clear out the old', completed: false, index: 4 },
+      ];
+      this.setListItems(this.listItems);
+    } else {
+      const mappedDataArray = [];
+      Object.keys(obj).map((key) => (mappedDataArray.push(obj[key])));
+
+      this.listItems = mappedDataArray;
+    }
   }
 
  displayItems=() => {
@@ -28,19 +47,37 @@ export default class ToDoList {
    listItemInput.appendChild(listInput);
    listMain.appendChild(listItemTitle);
    listMain.appendChild(listItemInput);
-
-   this.listItems.forEach((item, index) => {
+   this.listItems.forEach((item) => {
      const listItem = document.createElement('li');
      const checkbox = document.createElement('input');
      checkbox.type = 'checkbox';
-     checkbox.name = `checkbox-${index}`;
+     checkbox.name = `checkbox-${item.index - 1}`;
      checkbox.value = 'value';
-     checkbox.id = `checkbox-${index}`;
+     checkbox.id = `checkbox-${item.index - 1}`;
+     checkbox.className = 'checkbox';
+     if (item.completed === true) {
+       const thickSyb = document.createElement('span');
+       thickSyb.className = 'thickSyb';
+       thickSyb.addEventListener('click', unCheckComplete, false);
+       const t = document.createTextNode('✔ ');
+       thickSyb.appendChild(t);
+       listItem.appendChild(thickSyb);
+     } else {
+       checkbox.checked = false;
+       listItem.appendChild(checkbox);
+     }
      listItem.id = item.index;
-     listItem.className = 'listItem';
-     listItem.appendChild(checkbox);
-     listItem.appendChild(document.createTextNode(item.decription));
-     const icon = document.createElement('i');
+     listItem.draggable = true;
+     listItem.className = 'listItem listItemDrag';
+     listItem.addEventListener('click', activeList, false);
+
+     const textDesc = document.createElement('span');
+     textDesc.className = 'textDesc';
+     const t = document.createTextNode(item.decription);
+     textDesc.appendChild(t);
+     listItem.appendChild(textDesc);
+     const icon = document.createElement('svg');
+     icon.id = `icon-${item.index - 1}`;
      icon.className = 'fas fa-ellipsis-v icon';
      listItem.appendChild(icon);
      listMain.appendChild(listItem);
@@ -53,4 +90,14 @@ export default class ToDoList {
    }
    return listMain;
  }
+}
+export function activeList() {
+  document.querySelectorAll('.listItem').forEach((item) => {
+    item.style.backgroundColor = 'white';
+  });
+  document.querySelectorAll('.icon').forEach((item) => {
+    item.setAttribute('class', 'fas fa-ellipsis-v icon');
+  });
+  document.getElementById(this.id).style.backgroundColor = '#fcf9f9';
+  document.getElementById(`icon-${this.id - 1}`).setAttribute('class', 'fas fa-trash icon');
 }
