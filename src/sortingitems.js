@@ -83,6 +83,10 @@ function UpdateListIndex(){
         // console.log(newObj)
                 const objIndex = listObj.listItems.findIndex((obj => obj.index ===parseInt(item.id) ));
                 listObj.listItems[objIndex].index=indexPos + 1;
+                console.log(item)
+                item.id=indexPos + 1;
+                // item.querySelector('.icon').id=`icon-${item.id - 1}`;
+                
     });
     listObj.setListItems(newObj)
     console.log(newObj)

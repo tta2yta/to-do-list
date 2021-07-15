@@ -5,19 +5,16 @@ const listObj = new ToDoList();
 function checkComplete() {
     const listObj = new ToDoList();
   if (document.getElementById(this.id).checked) {
-      console.log(`.textDesc-${this.parentNode.id - 1}`)
-      console.log(this.parentNode)
-    this.parentNode.querySelector(`.textDesc-${this.parentNode.id - 1}`).classList.add('completed');
+    // this.parentNode.querySelector(`.textDesc-${this.parentNode.id - 1}`).classList.add('completed');
+   this.parentNode.querySelector('.textDesc').classList.add('completed');
     const thickSyb = document.createElement('span');
     thickSyb.className = 'thickSyb';
     thickSyb.addEventListener('click', unCheckComplete, false);
     const t = document.createTextNode('✔ ');
     thickSyb.appendChild(t);
     listObj.getListItmes();
-    console.log(listObj.listItems)
     const objIndex = listObj.listItems.findIndex((obj => obj.index == this.parentNode.id));
     listObj.listItems[objIndex].completed=true
-    console.log(listObj.listItems)
     listObj.setListItems(listObj.listItems)
     this.parentNode.replaceChild(thickSyb, this);
     
@@ -32,13 +29,14 @@ function unCheckComplete() {
   checkbox.value = 'value';
   checkbox.id = `checkbox-${this.parentNode.id - 1}`;
   checkbox.className = 'checkbox';
-  document.querySelector(`.textDesc-${this.parentNode.id - 1}`).classList.remove('completed');
+  // document.querySelector(`.textDesc-${this.parentNode.id - 1}`).classList.remove('completed');
+  this.parentNode.querySelector('.textDesc').classList.remove('completed');
+  this.parentNode.querySelector('.icon').id=`icon-${this.parentNode.id - 1}`
   listObj.getListItmes();
-  console.log(listObj.listItems)
   const objIndex = listObj.listItems.findIndex((obj => obj.index == this.parentNode.id));
   listObj.listItems[objIndex].completed=false
-  listObj.setListItems(listObj.listItems)
   this.parentNode.replaceChild(checkbox, this);
+  listObj.setListItems(listObj.listItems)
   checkbox.addEventListener('click', checkComplete, false);
 }
 

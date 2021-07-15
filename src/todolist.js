@@ -9,7 +9,7 @@ export default class ToDoList {
 
   getListItmes=()=>{
     const obj = JSON.parse(localStorage.getItem('todolist'));
-   console.log(obj)
+  //  console.log(obj)
     if (obj === null) {
        this.listItems = [
         { decription: 'Double-tap to edit', completed: false, index: 1 },
@@ -20,7 +20,7 @@ export default class ToDoList {
       this.setListItems(this.listItems)
     }
     else{
-      console.log(obj)
+      // console.log(obj)
       const myData = [];
       const mappedDataArray = [];
 
@@ -28,7 +28,7 @@ export default class ToDoList {
         mappedDataArray.push(obj[key]);
       }
       this.listItems=mappedDataArray
-       console.log(this.listItems)
+      //  console.log(this.listItems)
     }
   }
 
@@ -66,7 +66,7 @@ export default class ToDoList {
      listItem.addEventListener('click', this.activeList, false);
      listItem.appendChild(checkbox);
      const textDesc = document.createElement('span');
-     textDesc.className = `textDesc-${item.index -1}`;
+     textDesc.className = 'textDesc';
      const t = document.createTextNode(item.decription);
      textDesc.appendChild(t);
      listItem.appendChild(textDesc);
