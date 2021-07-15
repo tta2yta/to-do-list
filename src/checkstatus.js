@@ -4,12 +4,15 @@ const listObj = new ToDoList();
 
 function checkComplete() {
   if (document.getElementById(this.id).checked) {
+      console.log(`.textDesc-${this.parentNode.id - 1}`)
+      console.log(this.parentNode)
     this.parentNode.querySelector(`.textDesc-${this.parentNode.id - 1}`).classList.add('completed');
     const thickSyb = document.createElement('span');
     thickSyb.className = 'thickSyb';
     thickSyb.addEventListener('click', unCheckComplete, false);
     const t = document.createTextNode('✔ ');
     thickSyb.appendChild(t);
+    console.log(listObj.listItems)
     const objIndex = listObj.listItems.findIndex((obj => obj.index == this.parentNode.id));
     listObj.listItems[objIndex].completed=true
     listObj.setListItems(listObj)

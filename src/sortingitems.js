@@ -81,7 +81,7 @@ function UpdateListIndex(){
                 listObj.listItems[objIndex].index=indexPos + 1;
     });
     console.log(listObj.listItems)
-  
+    // listObj.setListItems(listObj.listItems)
     // sortList(listObj)
 
 }

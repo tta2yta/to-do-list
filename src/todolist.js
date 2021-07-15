@@ -50,9 +50,9 @@ export default class ToDoList {
      const listItem = document.createElement('li');
      const checkbox = document.createElement('input');
      checkbox.type = 'checkbox';
-     checkbox.name = `checkbox-${index}`;
+     checkbox.name = `checkbox-${item.index -1}`;
      checkbox.value = 'value';
-     checkbox.id = `checkbox-${index}`;
+     checkbox.id = `checkbox-${item.index -1}`;
      checkbox.className = 'checkbox';
      listItem.id = item.index;
      listItem.draggable = true;
@@ -60,12 +60,12 @@ export default class ToDoList {
      listItem.addEventListener('click', this.activeList, false);
      listItem.appendChild(checkbox);
      const textDesc = document.createElement('span');
-     textDesc.className = `textDesc-${index}`;
+     textDesc.className = `textDesc-${item.index -1}`;
      const t = document.createTextNode(item.decription);
      textDesc.appendChild(t);
      listItem.appendChild(textDesc);
      const icon = document.createElement('svg');
-     icon.id = `icon-${index}`;
+     icon.id = `icon-${item.index -1}`;
      icon.className = 'fas fa-ellipsis-v icon';
      listItem.appendChild(icon);
      listMain.appendChild(listItem);
