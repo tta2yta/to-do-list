@@ -70,11 +70,23 @@ function addHandlers(elem) {
 
 function UpdateListIndex(){
     const listObj = new ToDoList();
+    console.log(document.querySelectorAll('.listItemDrag'))
     document.querySelectorAll('.listItemDrag').forEach((item, indexPos)=>{
-                const objIndex = listObj.listItems.findIndex((obj => obj.index == item.id));
+        console.log(item.id + " " + indexPos)
+                const objIndex = listObj.listItems.findIndex((obj => obj.index ===parseInt(item.id) ));
+                // console.log(objIndex + " " + (indexPos + 1))
                 listObj.listItems[objIndex].index=indexPos + 1;
     });
+    console.log(listObj.listItems)
+    listObj.setListItems(listObj)
+    sortList(listObj)
 
+}
+
+function sortList(listObj){
+    console.log(listObj.listItems)
+    // listObj.listItems.sort((a,b) => (a.index > b.index) ? 1 : ((b.index > a.index) ? -1 : 0))
+    // console.log(listObj.listItems)
 }
 
 export {
