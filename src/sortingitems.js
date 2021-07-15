@@ -1,6 +1,5 @@
 import { checkComplete, unCheckComplete } from './checkstatus';
-import ToDoList from './todolist';
-import {activeList} from './todolist'
+import ToDoList, { activeList } from './todolist';
 
 const curObj = { curr: null };
 
@@ -78,10 +77,10 @@ function UpdateListIndex() {
   listObj.getListItmes();
   document.querySelectorAll('.listItemDrag').forEach((item, indexPos) => {
     if (item.querySelector('.checkbox') === null) {
-      completed = true;}
-    else if (item.querySelector('.checkbox').checked === true) {
-      completed = true;}
-    else {
+      completed = true;
+    } else if (item.querySelector('.checkbox').checked === true) {
+      completed = true;
+    } else {
       completed = false;
     }
 
@@ -89,7 +88,7 @@ function UpdateListIndex() {
     const objIndex = listObj.listItems.findIndex(((obj) => obj.index === parseInt(item.id, 10)));
     listObj.listItems[objIndex].index = indexPos + 1;
     item.id = indexPos + 1;
-    item.querySelector('.icon').id=`icon-${indexPos}`
+    item.querySelector('.icon').id = `icon-${indexPos}`;
   });
   listObj.setListItems(newObj);
 }
