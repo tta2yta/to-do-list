@@ -19,12 +19,6 @@ export default class ToDoList {
       this.setListItems(this.listItems);
     } else {
       const mappedDataArray = [];
-
-      //   for (const key in obj) {
-      //     mappedDataArray.push(obj[key]);
-      //   }
-      //   this.listItems = mappedDataArray;
-      // }
       Object.keys(obj).map((key) => (mappedDataArray.push(obj[key])));
       console.log(mappedDataArray);
 
