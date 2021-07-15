@@ -1,5 +1,6 @@
 import ToDoList from "./toDoList";
 
-function addItem(){
-
+export function addItem(){
+const listObj= new ToDoList();
+const description=document.getElemementById('listInput').value
 }

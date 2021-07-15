@@ -41,6 +41,7 @@ export default class ToDoList {
    const listInput = document.createElement('input');
    listInput.type = 'text';
    listInput.className = 'listInput';
+   listInput.id = 'listInput';
    listInput.placeholder = 'Add to your list';
    listItemInput.appendChild(iconEnter);
    listItemTitle.className = 'listItem listItemTitle';
