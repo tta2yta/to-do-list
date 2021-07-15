@@ -1,5 +1,5 @@
 import { unCheckComplete } from './checkstatus';
-
+import {addItem} from './addremove'
 export default class ToDoList {
   constructor() {
     this.listItems = [];
@@ -42,6 +42,7 @@ export default class ToDoList {
    listInput.type = 'text';
    listInput.className = 'listInput';
    listInput.id = 'listInput';
+   listInput.addEventListener('keyup', addItem, false)
    listInput.placeholder = 'Add to your list';
    listItemInput.appendChild(iconEnter);
    listItemTitle.className = 'listItem listItemTitle';

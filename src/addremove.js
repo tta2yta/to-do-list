@@ -1,6 +1,10 @@
 import ToDoList from "./toDoList";
 
-export function addItem(){
-const listObj= new ToDoList();
-const description=document.getElemementById('listInput').value
+export function addItem(ev){
+    if(ev.keyCode == 13){
+        const listObj= new ToDoList();
+        const description=document.getElementById('listInput').value
+      }
+    
+
 }
