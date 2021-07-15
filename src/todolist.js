@@ -19,9 +19,8 @@ export default class ToDoList {
       ];
     }
     else{
-      console.log(obj)
       const myData = Object.entries(obj).map(e => e[1])
-      this.listItems=myData
+      this.listItems=myData[0]
     }
   }
 
@@ -45,7 +44,6 @@ export default class ToDoList {
    listItemInput.appendChild(listInput);
    listMain.appendChild(listItemTitle);
    listMain.appendChild(listItemInput);
-   console.log(this.listItems)
    this.listItems.forEach((item, index) => {
      const listItem = document.createElement('li');
      const checkbox = document.createElement('input');

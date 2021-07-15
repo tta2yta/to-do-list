@@ -70,19 +70,21 @@ function addHandlers(elem) {
 
 function UpdateListIndex(){
     const listObj = new ToDoList();
+    let completed=false
+    const newObj=[];
     listObj.getListItmes()
-    console.log(listObj.listItems)
-    console.log(document.querySelectorAll('.listItemDrag'))
     document.querySelectorAll('.listItemDrag').forEach((item, indexPos)=>{
-        console.log(item)
-        console.log(indexPos+ " " + item.id + " " + item.textContent + " " + item.querySelector('.checkbox').checked )
+        if(item.querySelector('.checkbox')=== null)
+        completed=true
+        else
+        completed=false
+        
+        newObj.push({decription:item.textContent.replace('✔ ',''), completed: completed, index: indexPos + 1})
+        console.log(newObj)
                 const objIndex = listObj.listItems.findIndex((obj => obj.index ===parseInt(item.id) ));
-                // console.log(objIndex + " " + (indexPos + 1))
                 listObj.listItems[objIndex].index=indexPos + 1;
     });
-    console.log(listObj.listItems)
-    // listObj.setListItems(listObj.listItems)
-    // sortList(listObj)
+    listObj.setListItems(newObj)
 
 }
 
