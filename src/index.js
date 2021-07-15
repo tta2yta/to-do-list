@@ -8,7 +8,7 @@ import '@fortawesome/fontawesome-free/js/regular';
 import '@fortawesome/fontawesome-free/js/brands';
 
 const listObj = new ToDoList();
-listObj.getListItmes()
+listObj.getListItmes();
 
 document.getElementById('list-container').appendChild(listObj.displayItems());
 const cols = document.querySelectorAll('.listItem');

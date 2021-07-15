@@ -14,7 +14,9 @@
       "no-shadow": "off",
       "no-param-reassign": "off",
       "eol-last": "off",
-      "no-use-before-define": ["error", {"functions": false, "classes": true}]
+      "no-use-before-define": ["error", {"functions": false, "classes": true}],
+      "max-len": ["error", { "code": 320 }],
+      "class-methods-use-this":"off"
     },
     "ignorePatterns": [
       "dist/",

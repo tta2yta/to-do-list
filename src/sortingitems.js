@@ -1,5 +1,6 @@
-import { checkComplete, unCheckComplete} from './checkstatus'
+import { checkComplete, unCheckComplete } from './checkstatus';
 import ToDoList from './todolist';
+
 const curObj = { curr: null };
 
 function handelDragStart(ev) {
@@ -38,11 +39,11 @@ function dropHandler(ev) {
       this.insertAdjacentHTML('afterend', ev.dataTransfer.getData('text/html'));
       addHandlers(this.nextElementSibling);
     }
-    UpdateListIndex()
+    UpdateListIndex();
   }
   this.classList.remove('over-before');
   this.classList.remove('over-after');
- 
+
   return false;
 }
 function handleDragLeave() {
@@ -59,37 +60,31 @@ function addHandlers(elem) {
   elem.addEventListener('dragover', dragHandeler, false);
   elem.addEventListener('dragleave', handleDragLeave, false);
   elem.addEventListener('drop', dropHandler, false);
-  elem.addEventListener('dragend', handleDragEnd, false)
-  if(elem.querySelector('.checkbox') !== null){
-    elem.querySelector('.checkbox').addEventListener('click', checkComplete, false)
+  elem.addEventListener('dragend', handleDragEnd, false);
+  if (elem.querySelector('.checkbox') !== null) {
+    elem.querySelector('.checkbox').addEventListener('click', checkComplete, false);
   }
-  if( elem.querySelector('.thickSyb') !== null){
-    elem.querySelector('.thickSyb').addEventListener('click', unCheckComplete, false)
+  if (elem.querySelector('.thickSyb') !== null) {
+    elem.querySelector('.thickSyb').addEventListener('click', unCheckComplete, false);
   }
 }
 
-function UpdateListIndex(){
-  
-    const listObj = new ToDoList();
-    let completed=false
-    const newObj=[];
-    listObj.getListItmes()
-    document.querySelectorAll('.listItemDrag').forEach((item, indexPos)=>{
-        if(item.querySelector('.checkbox')=== null)
-        completed=true
-        else if(item.querySelector('.checkbox').checked === true)
-          completed=true
-        else
-        completed=false
-        
-        newObj.push({decription:item.textContent.replace('✔ ',''), completed: completed, index: indexPos + 1})
-                const objIndex = listObj.listItems.findIndex((obj => obj.index ===parseInt(item.id) ));
-                listObj.listItems[objIndex].index=indexPos + 1;
-                item.id=indexPos + 1;
-    });
-    listObj.setListItems(newObj)
+function UpdateListIndex() {
+  const listObj = new ToDoList();
+  let completed = false;
+  const newObj = [];
+  listObj.getListItmes();
+  document.querySelectorAll('.listItemDrag').forEach((item, indexPos) => {
+    if (item.querySelector('.checkbox') === null) completed = true;
+    else if (item.querySelector('.checkbox').checked === true) completed = true;
+    else completed = false;
 
-
+    newObj.push({ decription: item.textContent.replace('✔ ', ''), completed, index: indexPos + 1 });
+    const objIndex = listObj.listItems.findIndex(((obj) => obj.index === parseInt(item.id, 10)));
+    listObj.listItems[objIndex].index = indexPos + 1;
+    item.id = indexPos + 1;
+  });
+  listObj.setListItems(newObj);
 }
 
 export {
