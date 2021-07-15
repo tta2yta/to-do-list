@@ -1,5 +1,6 @@
 import { checkComplete, unCheckComplete } from './checkstatus';
 import ToDoList from './todolist';
+import {activeList} from './todolist'
 
 const curObj = { curr: null };
 
@@ -61,6 +62,7 @@ function addHandlers(elem) {
   elem.addEventListener('dragleave', handleDragLeave, false);
   elem.addEventListener('drop', dropHandler, false);
   elem.addEventListener('dragend', handleDragEnd, false);
+  elem.addEventListener('click', activeList, false);
   if (elem.querySelector('.checkbox') !== null) {
     elem.querySelector('.checkbox').addEventListener('click', checkComplete, false);
   }

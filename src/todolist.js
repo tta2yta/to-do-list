@@ -59,7 +59,7 @@ export default class ToDoList {
      listItem.id = item.index;
      listItem.draggable = true;
      listItem.className = 'listItem listItemDrag';
-     listItem.addEventListener('click', this.activeList, false);
+     listItem.addEventListener('click', activeList, false);
      listItem.appendChild(checkbox);
      const textDesc = document.createElement('span');
      textDesc.className = 'textDesc';
@@ -81,14 +81,15 @@ export default class ToDoList {
    return listMain;
  }
 
- activeList() {
-   document.querySelectorAll('.listItem').forEach((item) => {
-     item.style.backgroundColor = 'white';
-   });
-   document.querySelectorAll('.icon').forEach((item) => {
-     item.setAttribute('class', 'fas fa-ellipsis-v icon');
-   });
-   document.getElementById(this.id).style.backgroundColor = '#fcf9f9';
-   document.getElementById(`icon-${this.id - 1}`).setAttribute('class', 'fas fa-trash icon');
- }
+
+}
+ export function activeList() {
+  document.querySelectorAll('.listItem').forEach((item) => {
+    item.style.backgroundColor = 'white';
+  });
+  document.querySelectorAll('.icon').forEach((item) => {
+    item.setAttribute('class', 'fas fa-ellipsis-v icon');
+  });
+  document.getElementById(this.id).style.backgroundColor = '#fcf9f9';
+  document.getElementById(`icon-${this.id - 1}`).setAttribute('class', 'fas fa-trash icon');
 }
