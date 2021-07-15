@@ -19,8 +19,15 @@ export default class ToDoList {
       ];
     }
     else{
-      const myData = Object.entries(obj).map(e => e[1])
-      this.listItems=myData[0]
+      console.log(obj)
+      const myData = [];
+      const mappedDataArray = [];
+
+      for (const key in obj) {
+        mappedDataArray.push(obj[key]);
+      }
+      this.listItems=mappedDataArray[0]
+       console.log(this.listItems)
     }
   }
 

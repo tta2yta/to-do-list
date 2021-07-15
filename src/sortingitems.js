@@ -80,11 +80,12 @@ function UpdateListIndex(){
         completed=false
         
         newObj.push({decription:item.textContent.replace('✔ ',''), completed: completed, index: indexPos + 1})
-        console.log(newObj)
+        // console.log(newObj)
                 const objIndex = listObj.listItems.findIndex((obj => obj.index ===parseInt(item.id) ));
                 listObj.listItems[objIndex].index=indexPos + 1;
     });
     listObj.setListItems(newObj)
+    console.log(newObj)
 
 }
 

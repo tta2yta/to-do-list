@@ -3,6 +3,7 @@ import ToDoList from './todolist';
 const listObj = new ToDoList();
 
 function checkComplete() {
+    const listObj = new ToDoList();
   if (document.getElementById(this.id).checked) {
       console.log(`.textDesc-${this.parentNode.id - 1}`)
       console.log(this.parentNode)
@@ -16,13 +17,15 @@ function checkComplete() {
     console.log(listObj.listItems)
     const objIndex = listObj.listItems.findIndex((obj => obj.index == this.parentNode.id));
     listObj.listItems[objIndex].completed=true
-    listObj.setListItems(listObj)
+    console.log(listObj.listItems)
+    listObj.setListItems(listObj.listItems)
     this.parentNode.replaceChild(thickSyb, this);
     
   }
 }
 
 function unCheckComplete() {
+    const listObj = new ToDoList();
   const checkbox = document.createElement('input');
   checkbox.type = 'checkbox';
   checkbox.name = `checkbox-${this.parentNode.id - 1}`;
@@ -34,7 +37,7 @@ function unCheckComplete() {
   console.log(listObj.listItems)
   const objIndex = listObj.listItems.findIndex((obj => obj.index == this.parentNode.id));
   listObj.listItems[objIndex].completed=false
-  listObj.setListItems(listObj)
+  listObj.setListItems(listObj.listItems)
   this.parentNode.replaceChild(checkbox, this);
   checkbox.addEventListener('click', checkComplete, false);
 }
