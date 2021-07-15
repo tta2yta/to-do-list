@@ -1,3 +1,4 @@
+import {unCheckComplete } from './checkstatus';
 export default class ToDoList {
   constructor() {
     this.listItems = [];
@@ -20,7 +21,6 @@ export default class ToDoList {
     } else {
       const mappedDataArray = [];
       Object.keys(obj).map((key) => (mappedDataArray.push(obj[key])));
-      console.log(mappedDataArray);
 
       this.listItems = mappedDataArray;
     }
@@ -54,13 +54,23 @@ export default class ToDoList {
      checkbox.value = 'value';
      checkbox.id = `checkbox-${item.index - 1}`;
      checkbox.className = 'checkbox';
-     if (item.completed === true) checkbox.checked = true;
-     else checkbox.checked = false;
+     if (item.completed === true){
+    const thickSyb = document.createElement('span');
+    thickSyb.className = 'thickSyb';
+    thickSyb.addEventListener('click', unCheckComplete, false);
+    const t = document.createTextNode('✔ ');
+    thickSyb.appendChild(t);
+    listItem.appendChild(thickSyb);
+     } 
+     else {
+       checkbox.checked = false;
+       listItem.appendChild(checkbox);
+     }
      listItem.id = item.index;
      listItem.draggable = true;
      listItem.className = 'listItem listItemDrag';
      listItem.addEventListener('click', activeList, false);
-     listItem.appendChild(checkbox);
+     
      const textDesc = document.createElement('span');
      textDesc.className = 'textDesc';
      const t = document.createTextNode(item.decription);

@@ -77,14 +77,19 @@ function UpdateListIndex() {
   const newObj = [];
   listObj.getListItmes();
   document.querySelectorAll('.listItemDrag').forEach((item, indexPos) => {
-    if (item.querySelector('.checkbox') === null) completed = true;
-    else if (item.querySelector('.checkbox').checked === true) completed = true;
-    else completed = false;
+    if (item.querySelector('.checkbox') === null) {
+      completed = true;}
+    else if (item.querySelector('.checkbox').checked === true) {
+      completed = true;}
+    else {
+      completed = false;
+    }
 
     newObj.push({ decription: item.textContent.replace('✔ ', ''), completed, index: indexPos + 1 });
     const objIndex = listObj.listItems.findIndex(((obj) => obj.index === parseInt(item.id, 10)));
     listObj.listItems[objIndex].index = indexPos + 1;
     item.id = indexPos + 1;
+    item.querySelector('.icon').id=`icon-${indexPos}`
   });
   listObj.setListItems(newObj);
 }
