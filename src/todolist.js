@@ -9,7 +9,6 @@ export default class ToDoList {
 
   getListItmes=()=>{
     const obj = JSON.parse(localStorage.getItem('todolist'));
-  //  console.log(obj)
     if (obj === null) {
        this.listItems = [
         { decription: 'Double-tap to edit', completed: false, index: 1 },
@@ -20,7 +19,6 @@ export default class ToDoList {
       this.setListItems(this.listItems)
     }
     else{
-      // console.log(obj)
       const myData = [];
       const mappedDataArray = [];
 
@@ -28,7 +26,6 @@ export default class ToDoList {
         mappedDataArray.push(obj[key]);
       }
       this.listItems=mappedDataArray
-      //  console.log(this.listItems)
     }
   }
 

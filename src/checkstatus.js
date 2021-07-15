@@ -20,7 +20,6 @@ function checkComplete() {
     
   }
   else{
-    console.log("kk")
     listObj.getListItmes();
     const objIndex = listObj.listItems.findIndex((obj => obj.index == this.parentNode.id));
     listObj.listItems[objIndex].completed=false

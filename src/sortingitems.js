@@ -69,6 +69,7 @@ function addHandlers(elem) {
 }
 
 function UpdateListIndex(){
+  
     const listObj = new ToDoList();
     let completed=false
     const newObj=[];
@@ -76,28 +77,20 @@ function UpdateListIndex(){
     document.querySelectorAll('.listItemDrag').forEach((item, indexPos)=>{
         if(item.querySelector('.checkbox')=== null)
         completed=true
+        else if(item.querySelector('.checkbox').checked === true)
+          completed=true
         else
         completed=false
         
         newObj.push({decription:item.textContent.replace('✔ ',''), completed: completed, index: indexPos + 1})
-        // console.log(newObj)
                 const objIndex = listObj.listItems.findIndex((obj => obj.index ===parseInt(item.id) ));
                 listObj.listItems[objIndex].index=indexPos + 1;
-                console.log(item)
                 item.id=indexPos + 1;
-                // item.querySelector('.icon').id=`icon-${item.id - 1}`;
-                
     });
     listObj.setListItems(newObj)
-    console.log(newObj)
+
 
 }
-
-// function sortList(listObj){
-//     console.log(listObj.listItems)
-//     listObj.listItems.sort((a,b) => (a.index > b.index) ? 1 : ((b.index > a.index) ? -1 : 0))
-//     listObj.setListItems(listObj.listItems)
-// }
 
 export {
   handelDragStart, dragHandeler, dropHandler, addHandlers,
