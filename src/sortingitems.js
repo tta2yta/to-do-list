@@ -1,4 +1,5 @@
 import { checkComplete, unCheckComplete} from './checkstatus'
+import ToDoList from './todolist';
 const curObj = { curr: null };
 
 function handelDragStart(ev) {
@@ -37,9 +38,11 @@ function dropHandler(ev) {
       this.insertAdjacentHTML('afterend', ev.dataTransfer.getData('text/html'));
       addHandlers(this.nextElementSibling);
     }
+    UpdateListIndex()
   }
   this.classList.remove('over-before');
   this.classList.remove('over-after');
+ 
   return false;
 }
 function handleDragLeave() {
@@ -56,13 +59,22 @@ function addHandlers(elem) {
   elem.addEventListener('dragover', dragHandeler, false);
   elem.addEventListener('dragleave', handleDragLeave, false);
   elem.addEventListener('drop', dropHandler, false);
-  elem.addEventListener('dragend', handleDragEnd, false);
+  elem.addEventListener('dragend', handleDragEnd, false)
   if(elem.querySelector('.checkbox') !== null){
     elem.querySelector('.checkbox').addEventListener('click', checkComplete, false)
   }
   if( elem.querySelector('.thickSyb') !== null){
     elem.querySelector('.thickSyb').addEventListener('click', unCheckComplete, false)
   }
+}
+
+function UpdateListIndex(){
+    const listObj = new ToDoList();
+    document.querySelectorAll('.listItemDrag').forEach((item, indexPos)=>{
+                const objIndex = listObj.listItems.findIndex((obj => obj.index == item.id));
+                listObj.listItems[objIndex].index=indexPos + 1;
+    });
+
 }
 
 export {

@@ -49,7 +49,7 @@ export default class ToDoList {
      checkbox.className = 'checkbox';
      listItem.id = item.index;
      listItem.draggable = true;
-     listItem.className = 'listItem';
+     listItem.className = 'listItem listItemDrag';
      listItem.addEventListener('click', this.activeList, false);
      listItem.appendChild(checkbox);
      const textDesc = document.createElement('span');
