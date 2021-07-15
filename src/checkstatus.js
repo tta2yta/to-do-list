@@ -19,6 +19,13 @@ function checkComplete() {
     this.parentNode.replaceChild(thickSyb, this);
     
   }
+  else{
+    console.log("kk")
+    listObj.getListItmes();
+    const objIndex = listObj.listItems.findIndex((obj => obj.index == this.parentNode.id));
+    listObj.listItems[objIndex].completed=false
+    listObj.setListItems(listObj.listItems)
+  }
 }
 
 function unCheckComplete() {

@@ -60,6 +60,10 @@ export default class ToDoList {
      checkbox.value = 'value';
      checkbox.id = `checkbox-${item.index -1}`;
      checkbox.className = 'checkbox';
+     if(item.completed===true)
+     checkbox.checked=true
+     else
+     checkbox.checked=false
      listItem.id = item.index;
      listItem.draggable = true;
      listItem.className = 'listItem listItemDrag';
