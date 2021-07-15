@@ -1,11 +1,6 @@
 export default class ToDoList {
   constructor() {
-    this.listItems = [
-      { decription: 'Double-tap to edit', completed: false, index: 1 },
-      { decription: "Drag 'n drop to reorder your list", completed: false, index: 2 },
-      { decription: 'Manage all your lists in one place', completed: false, index: 3 },
-      { decription: 'Resync to clear out the old', completed: false, index: 4 },
-    ];
+    this.listItems = [];
   }
 
   setListItems(obj=null){
@@ -13,9 +8,20 @@ export default class ToDoList {
   }
 
   getListItmes=()=>{
-    this.listItems = JSON.parse(localStorage.getItem('todolist'));
-    if (this.listItems === null) {
-       this.listItems = [];
+    const obj = JSON.parse(localStorage.getItem('todolist'));
+   
+    if (obj === null) {
+       this.listItems = [
+        { decription: 'Double-tap to edit', completed: false, index: 1 },
+        { decription: "Drag 'n drop to reorder your list", completed: false, index: 2 },
+        { decription: 'Manage all your lists in one place', completed: false, index: 3 },
+        { decription: 'Resync to clear out the old', completed: false, index: 4 },
+      ];
+    }
+    else{
+      console.log(obj)
+      const myData = Object.entries(obj).map(e => e[1])
+      this.listItems=myData
     }
   }
 
@@ -39,6 +45,7 @@ export default class ToDoList {
    listItemInput.appendChild(listInput);
    listMain.appendChild(listItemTitle);
    listMain.appendChild(listItemInput);
+   console.log(this.listItems)
    this.listItems.forEach((item, index) => {
      const listItem = document.createElement('li');
      const checkbox = document.createElement('input');
