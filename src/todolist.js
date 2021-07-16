@@ -108,8 +108,7 @@ export default class ToDoList {
  }
 }
 export function activeList(e) {
-  console.log(e.target.nodeName )
-  if (e.target !== e.currentTarget)
+  if (e.target !== e.currentTarget && e.target.className !== "textDesc")
   return false
   document.querySelectorAll('.listItem').forEach((item) => {
     item.style.backgroundColor = 'white';
@@ -119,17 +118,6 @@ export function activeList(e) {
   });
   document.getElementById(this.id).style.backgroundColor = '#fcf9f9';
   document.getElementById(`icon-${this.id - 1}`).setAttribute('class', 'fas fa-trash icon');
-  console.log(this.parentNode)
-  // if(this.previousElementSibling.querySelector('.listInputDsec') !==null){
-  //   this.previousElementSibling.querySelector('.listInputDsec').classList.add('hide')
-  //   this.previousElementSibling.querySelector('.textDesc').classList.remove('hide')
-  // }
-  
-  // if(this.nextElementSibling.querySelector('.listInputDsec') !==null){
-  //   this.nextElementSibling.querySelector('.listInputDsec').classList.add('hide')
-  //   this.previousElementSibling.querySelector('.textDesc').classList.remove('hide')
-  // }
-  console.log(this)
   this.parentNode.querySelectorAll('.listInputDsec').forEach(item=>{
     if(item.parentNode !== this){
       item.classList.add('hide')
@@ -148,6 +136,5 @@ export function activeList(e) {
    listInput.id = 'listInput';
    listInput.addEventListener('keyup', addItem, false)
    listInput.placeholder = 'Add to your list';
-  //  this.appendChild(iconEnter);
   }
 }
