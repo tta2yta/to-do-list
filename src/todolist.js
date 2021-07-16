@@ -116,10 +116,28 @@ export function activeList() {
   });
   document.getElementById(this.id).style.backgroundColor = '#fcf9f9';
   document.getElementById(`icon-${this.id - 1}`).setAttribute('class', 'fas fa-trash icon');
+  console.log(this.parentNode)
+  // if(this.previousElementSibling.querySelector('.listInputDsec') !==null){
+  //   this.previousElementSibling.querySelector('.listInputDsec').classList.add('hide')
+  //   this.previousElementSibling.querySelector('.textDesc').classList.remove('hide')
+  // }
+  
+  // if(this.nextElementSibling.querySelector('.listInputDsec') !==null){
+  //   this.nextElementSibling.querySelector('.listInputDsec').classList.add('hide')
+  //   this.previousElementSibling.querySelector('.textDesc').classList.remove('hide')
+  // }
   console.log(this)
+  this.parentNode.querySelectorAll('.listInputDsec').forEach(item=>{
+    if(item.parentNode !== this){
+      item.classList.add('hide')
+      item.parentNode.querySelector('.textDesc').classList.remove('hide')
+    }
+    if(item.parentNode ===this)
+    item.classList.remove('hide')
+    this.querySelector('.textDesc').classList.add('hide')
+  })
+
   if(this !== null){
-   this.querySelector('.textDesc').classList.add('hide')
-   this.querySelector('.listInputDsec').classList.remove('hide')
    const listInput = document.createElement('input');
    listInput.type = 'text';
    listInput.className = 'listInput';
