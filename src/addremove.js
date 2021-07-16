@@ -23,7 +23,7 @@ export function removeItem(){
         const filteredList= listObj.listItems.filter(item=>parseInt(item.index, 10) !==parseInt(this.parentNode.id, 10))
         
         filteredList.forEach((element, index) => {
-            element.index=index;   
+            element.index=index + 1;   
         });
         console.log(filteredList);
         listObj.setListItems(filteredList)
