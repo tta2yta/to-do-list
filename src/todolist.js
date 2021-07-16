@@ -1,5 +1,5 @@
 import { unCheckComplete } from './checkstatus';
-import { addItem, removeItem, updateItem } from './addremove';
+import { addItem, removeItem, updateItem, clearComplted } from './addremove';
 
 export default class ToDoList {
   constructor() {
@@ -102,12 +102,15 @@ export default class ToDoList {
      const clearLink = document.createElement('li');
      clearLink.className = 'listItem clearLink';
      clearLink.appendChild(document.createTextNode('Clear all completed'));
+     clearLink.addEventListener('click', clearComplted, false);
      listMain.appendChild(clearLink);
    }
    return listMain;
  }
 }
 export function activeList(e) {
+  if(e.target.className==='listItem clearLink')
+  return false
   if (e.target !== e.currentTarget && e.target.className !== 'textDesc') return false;
   document.querySelectorAll('.listItem').forEach((item) => {
     item.style.backgroundColor = 'white';

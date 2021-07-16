@@ -15,10 +15,7 @@ export function addItem(ev) {
 
 export function removeItem() {
   if (this.querySelector('.fa-trash') !== null) {
-    const listObj = new ToDoList();
-    listObj.getListItmes();
-    const filteredList = listObj.listItems.filter((item) => parseInt(item.index, 10) !== parseInt(this.parentNode.id, 10));
-
+    
     filteredList.forEach((element, index) => {
       element.index = index + 1;
     });
@@ -42,4 +39,14 @@ export function updateItem(ev) {
     return false;
   }
   return false;
+}
+
+export function clearComplted(){
+    const listObj = new ToDoList();
+    listObj.getListItmes();
+    const filteredList = listObj.listItems.filter((item) => item.completed !== true);
+    listObj.setListItems(filteredList);
+    window.location.reload();
+    return false;
+
 }
