@@ -1,5 +1,5 @@
 import { unCheckComplete } from './checkstatus';
-import {addItem, removeItem} from './addremove'
+import {addItem, removeItem, updateItem} from './addremove'
 export default class ToDoList {
   constructor() {
     this.listItems = [];
@@ -82,7 +82,7 @@ export default class ToDoList {
      const listInputDsec = document.createElement('input');
      listInputDsec.type = 'text';
      listInputDsec.className = 'listInputDsec hide';
-     listInputDsec.addEventListener('keyup', addItem, false)
+     listInputDsec.addEventListener('keyup', updateItem , false)
      listInputDsec.placeholder = 'Add to your list';
 
      listItem.appendChild(listInputDsec);
@@ -108,6 +108,7 @@ export default class ToDoList {
  }
 }
 export function activeList(e) {
+  console.log(e.target.nodeName )
   if (e.target !== e.currentTarget)
   return false
   document.querySelectorAll('.listItem').forEach((item) => {

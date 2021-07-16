@@ -11,7 +11,6 @@ export function addItem(ev){
         return false;
 
       }
-    
 
 }
 
@@ -30,4 +29,8 @@ export function removeItem(){
         location.reload();
         return false;
     }
+}
+
+export function updateItem(){
+    console.log("update")
 }
