@@ -4,6 +4,8 @@ function checkComplete() {
   const listObj = new ToDoList();
   if (document.getElementById(this.id).checked) {
     this.parentNode.querySelector('.textDesc').classList.add('completed');
+    this.parentNode.querySelector('.listInputDsec').classList.add('hide');
+    this.parentNode.querySelector('.textDesc').classList.remove('hide');
     const thickSyb = document.createElement('span');
     thickSyb.className = 'thickSyb';
     thickSyb.addEventListener('click', unCheckComplete, false);
@@ -31,6 +33,8 @@ function unCheckComplete() {
   checkbox.id = `checkbox-${this.parentNode.id - 1}`;
   checkbox.className = 'checkbox';
   this.parentNode.querySelector('.textDesc').classList.remove('completed');
+  this.parentNode.querySelector('.listInputDsec').classList.add('hide');
+  this.parentNode.querySelector('.textDesc').classList.remove('hide');
   this.parentNode.querySelector('.icon').id = `icon-${this.parentNode.id - 1}`;
   listObj.getListItmes();
   const objIndex = listObj.listItems.findIndex(((obj) => parseInt(obj.index, 10) === parseInt(this.parentNode.id, 10)));

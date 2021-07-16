@@ -8,6 +8,7 @@ module.exports = {
     todolist: './src/todolist.js',
     sortingitems: './src/sortingitems.js',
     checkstatus: './src/checkstatus.js',
+    addremove: './src/addremove.js',
   },
   output: {
     filename: '[name].bundle.js',
