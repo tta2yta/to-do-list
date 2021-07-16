@@ -1,6 +1,6 @@
 import { checkComplete, unCheckComplete } from './checkstatus';
 import ToDoList, { activeList } from './todolist';
-import {removeItem} from './addremove'
+import {removeItem, updateItem} from './addremove'
 
 const curObj = { curr: null };
 
@@ -70,6 +70,9 @@ function addHandlers(elem) {
   }
   if (elem.querySelector('.thickSyb') !== null) {
     elem.querySelector('.thickSyb').addEventListener('click', unCheckComplete, false);
+  }
+  if (elem.querySelector('.listInputDsec') !== null) {
+    elem.querySelector('.listInputDsec').addEventListener('keyup', updateItem, false);
   }
 }
 
