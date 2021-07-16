@@ -78,6 +78,16 @@ export default class ToDoList {
      const t = document.createTextNode(item.decription);
      textDesc.appendChild(t);
      listItem.appendChild(textDesc);
+
+     const listInputDsec = document.createElement('input');
+     listInputDsec.type = 'text';
+     listInputDsec.className = 'listInputDsec hide';
+     listInputDsec.addEventListener('keyup', addItem, false)
+     listInputDsec.placeholder = 'Add to your list';
+
+     listItem.appendChild(listInputDsec);
+
+
      const spanSvg=document.createElement('span')
      spanSvg.className="spanSvg"
      const icon = document.createElement('svg');
@@ -106,5 +116,16 @@ export function activeList() {
   });
   document.getElementById(this.id).style.backgroundColor = '#fcf9f9';
   document.getElementById(`icon-${this.id - 1}`).setAttribute('class', 'fas fa-trash icon');
-
+  console.log(this)
+  if(this !== null){
+   this.querySelector('.textDesc').classList.add('hide')
+   this.querySelector('.listInputDsec').classList.remove('hide')
+   const listInput = document.createElement('input');
+   listInput.type = 'text';
+   listInput.className = 'listInput';
+   listInput.id = 'listInput';
+   listInput.addEventListener('keyup', addItem, false)
+   listInput.placeholder = 'Add to your list';
+  //  this.appendChild(iconEnter);
+  }
 }

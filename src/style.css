@@ -121,3 +121,10 @@ svg{
 .thickSyb {
   cursor: pointer;
 }
+.hide{
+  display: none;
+}
+
+.listInputDsec{
+ min-width: 70%;
+}
