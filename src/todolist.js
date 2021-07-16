@@ -134,6 +134,7 @@ export function activeList() {
     }
     if(item.parentNode ===this)
     item.classList.remove('hide')
+    item.value=this.querySelector('.textDesc').innerHTML
     this.querySelector('.textDesc').classList.add('hide')
   })
 
