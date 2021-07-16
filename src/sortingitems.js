@@ -1,6 +1,6 @@
 import { checkComplete, unCheckComplete } from './checkstatus';
 import ToDoList, { activeList } from './todolist';
-import {removeItem, updateItem} from './addremove'
+import { removeItem, updateItem } from './addremove';
 
 const curObj = { curr: null };
 
@@ -63,8 +63,7 @@ function addHandlers(elem) {
   elem.addEventListener('drop', dropHandler, false);
   elem.addEventListener('dragend', handleDragEnd, false);
   elem.addEventListener('click', activeList, false);
-  if (elem.querySelector('.spanSvg') !== null)
-  elem.querySelector('.spanSvg').addEventListener('click', removeItem, false);
+  if (elem.querySelector('.spanSvg') !== null) elem.querySelector('.spanSvg').addEventListener('click', removeItem, false);
   if (elem.querySelector('.checkbox') !== null) {
     elem.querySelector('.checkbox').addEventListener('click', checkComplete, false);
   }

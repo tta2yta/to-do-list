@@ -1,5 +1,6 @@
 import { unCheckComplete } from './checkstatus';
-import {addItem, removeItem, updateItem} from './addremove'
+import { addItem, removeItem, updateItem } from './addremove';
+
 export default class ToDoList {
   constructor() {
     this.listItems = [];
@@ -42,7 +43,7 @@ export default class ToDoList {
    listInput.type = 'text';
    listInput.className = 'listInput';
    listInput.id = 'listInput';
-   listInput.addEventListener('keyup', addItem, false)
+   listInput.addEventListener('keyup', addItem, false);
    listInput.placeholder = 'Add to your list';
    listItemInput.appendChild(iconEnter);
    listItemTitle.className = 'listItem listItemTitle';
@@ -82,19 +83,18 @@ export default class ToDoList {
      const listInputDsec = document.createElement('input');
      listInputDsec.type = 'text';
      listInputDsec.className = 'listInputDsec hide';
-     listInputDsec.addEventListener('keyup', updateItem , false)
+     listInputDsec.addEventListener('keyup', updateItem, false);
      listInputDsec.placeholder = 'Add to your list';
 
      listItem.appendChild(listInputDsec);
 
-
-     const spanSvg=document.createElement('span')
-     spanSvg.className="spanSvg"
+     const spanSvg = document.createElement('span');
+     spanSvg.className = 'spanSvg';
      const icon = document.createElement('svg');
      icon.id = `icon-${item.index - 1}`;
      icon.className = 'fas fa-ellipsis-v icon';
      spanSvg.addEventListener('click', removeItem, false);
-     spanSvg.appendChild(icon)
+     spanSvg.appendChild(icon);
      listItem.appendChild(spanSvg);
      listMain.appendChild(listItem);
    });
@@ -108,8 +108,7 @@ export default class ToDoList {
  }
 }
 export function activeList(e) {
-  if (e.target !== e.currentTarget && e.target.className !== "textDesc")
-  return false
+  if (e.target !== e.currentTarget && e.target.className !== 'textDesc') return false;
   document.querySelectorAll('.listItem').forEach((item) => {
     item.style.backgroundColor = 'white';
   });
@@ -118,23 +117,23 @@ export function activeList(e) {
   });
   document.getElementById(this.id).style.backgroundColor = '#fcf9f9';
   document.getElementById(`icon-${this.id - 1}`).setAttribute('class', 'fas fa-trash icon');
-  this.parentNode.querySelectorAll('.listInputDsec').forEach(item=>{
-    if(item.parentNode !== this){
-      item.classList.add('hide')
-      item.parentNode.querySelector('.textDesc').classList.remove('hide')
+  this.parentNode.querySelectorAll('.listInputDsec').forEach((item) => {
+    if (item.parentNode !== this) {
+      item.classList.add('hide');
+      item.parentNode.querySelector('.textDesc').classList.remove('hide');
     }
-    if(item.parentNode ===this)
-    item.classList.remove('hide')
-    item.value=this.querySelector('.textDesc').innerHTML
-    this.querySelector('.textDesc').classList.add('hide')
-  })
+    if (item.parentNode === this) item.classList.remove('hide');
+    item.value = this.querySelector('.textDesc').innerHTML;
+    this.querySelector('.textDesc').classList.add('hide');
+  });
 
-  if(this !== null){
-   const listInput = document.createElement('input');
-   listInput.type = 'text';
-   listInput.className = 'listInput';
-   listInput.id = 'listInput';
-   listInput.addEventListener('keyup', addItem, false)
-   listInput.placeholder = 'Add to your list';
+  if (this !== null) {
+    const listInput = document.createElement('input');
+    listInput.type = 'text';
+    listInput.className = 'listInput';
+    listInput.id = 'listInput';
+    listInput.addEventListener('keyup', addItem, false);
+    listInput.placeholder = 'Add to your list';
   }
+  return false;
 }
