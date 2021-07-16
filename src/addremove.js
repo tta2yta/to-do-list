@@ -21,6 +21,10 @@ export function removeItem(){
         const listObj= new ToDoList();
         listObj.getListItmes();
         const filteredList= listObj.listItems.filter(item=>parseInt(item.index, 10) !==parseInt(this.parentNode.id, 10))
+        
+        filteredList.forEach((element, index) => {
+            element.index=index;   
+        });
         console.log(filteredList);
         listObj.setListItems(filteredList)
         location.reload();
