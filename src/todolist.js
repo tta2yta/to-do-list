@@ -107,7 +107,9 @@ export default class ToDoList {
    return listMain;
  }
 }
-export function activeList() {
+export function activeList(e) {
+  if (e.target !== e.currentTarget)
+  return false
   document.querySelectorAll('.listItem').forEach((item) => {
     item.style.backgroundColor = 'white';
   });
