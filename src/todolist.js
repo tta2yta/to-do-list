@@ -1,5 +1,7 @@
 import { unCheckComplete } from './checkstatus';
-import { addItem, removeItem, updateItem, clearComplted } from './addremove';
+import {
+  addItem, removeItem, updateItem, clearComplted,
+} from './addremove';
 
 export default class ToDoList {
   constructor() {
@@ -109,8 +111,7 @@ export default class ToDoList {
  }
 }
 export function activeList(e) {
-  if(e.target.className==='listItem clearLink')
-  return false
+  if (e.target.className === 'listItem clearLink') return false;
   if (e.target !== e.currentTarget && e.target.className !== 'textDesc') return false;
   document.querySelectorAll('.listItem').forEach((item) => {
     item.style.backgroundColor = 'white';
