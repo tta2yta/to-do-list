@@ -128,3 +128,10 @@ svg{
 .listInputDsec{
  min-width: 70%;
 }
+
+@media screen and (min-width: 746px) {
+    .list-container ul {
+      width: 500px;
+      margin: auto;
+    }
+  }
