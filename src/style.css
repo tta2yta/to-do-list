@@ -135,5 +135,6 @@ svg {
   .list-container ul {
     width: 500px;
     margin: auto;
+    border: 1px solid red;
   }
 }
