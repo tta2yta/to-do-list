@@ -35,7 +35,6 @@ function unCheckComplete() {
   this.parentNode.querySelector('.textDesc').classList.remove('completed');
   this.parentNode.querySelector('.listInputDsec').classList.add('hide');
   this.parentNode.querySelector('.textDesc').classList.remove('hide');
-  console.log(this.parentNode)
   this.parentNode.querySelector('.icon').id = `icon-${this.parentNode.id - 1}`;
   listObj.getListItmes();
   const objIndex = listObj.listItems.findIndex(((obj) => parseInt(obj.index, 10) === parseInt(this.parentNode.id, 10)));

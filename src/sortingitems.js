@@ -63,7 +63,6 @@ function addHandlers(elem) {
   elem.addEventListener('drop', dropHandler, false);
   elem.addEventListener('dragend', handleDragEnd, false);
   elem.addEventListener('click', activeList, false);
-  console.log(elem.querySelector('.spanSvg'))
   if (elem.querySelector('.spanSvg') !== null)
   elem.querySelector('.spanSvg').addEventListener('click', removeItem, false);
   if (elem.querySelector('.checkbox') !== null) {
