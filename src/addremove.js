@@ -31,6 +31,17 @@ export function removeItem(){
     }
 }
 
-export function updateItem(){
-    console.log("update")
+export function updateItem(ev){
+    if(ev.keyCode == 13){
+        const listObj=new ToDoList();
+        const decription=this.value;
+        const index= this.parentNode.id;
+        listObj.getListItmes();
+        const objIndex = listObj.listItems.findIndex(((obj) => obj.index === parseInt(index, 10)));
+        listObj.listItems[objIndex].decription = decription;
+        listObj.setListItems(listObj.listItems)
+        location.reload();
+        return false;
+
+    }
 }
