@@ -46,7 +46,8 @@ input[type='checkbox'] {
   cursor: pointer;
   pointer-events: all;
 }
-svg{
+
+svg {
   pointer-events: all;
 }
 
@@ -121,17 +122,18 @@ svg{
 .thickSyb {
   cursor: pointer;
 }
-.hide{
+
+.hide {
   display: none;
 }
 
-.listInputDsec{
- min-width: 70%;
+.listInputDsec {
+  min-width: 70%;
 }
 
 @media screen and (min-width: 746px) {
-    .list-container ul {
-      width: 500px;
-      margin: auto;
-    }
+  .list-container ul {
+    width: 500px;
+    margin: auto;
   }
+}
