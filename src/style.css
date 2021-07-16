@@ -43,7 +43,11 @@ input[type='checkbox'] {
   color: grey;
   transform: scale(1.5);
   padding-right: 3px;
-  cursor: crosshair;
+  cursor: pointer;
+  pointer-events: all;
+}
+svg{
+  pointer-events: all;
 }
 
 .listItemInput {

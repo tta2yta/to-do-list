@@ -78,10 +78,13 @@ export default class ToDoList {
      const t = document.createTextNode(item.decription);
      textDesc.appendChild(t);
      listItem.appendChild(textDesc);
+     const spanSvg=document.createElement('span')
      const icon = document.createElement('svg');
      icon.id = `icon-${item.index - 1}`;
      icon.className = 'fas fa-ellipsis-v icon';
-     listItem.appendChild(icon);
+     spanSvg.addEventListener('click', removeItem, false);
+     spanSvg.appendChild(icon)
+     listItem.appendChild(spanSvg);
      listMain.appendChild(listItem);
    });
    if (this.listItems !== []) {
@@ -102,9 +105,5 @@ export function activeList() {
   });
   document.getElementById(this.id).style.backgroundColor = '#fcf9f9';
   document.getElementById(`icon-${this.id - 1}`).setAttribute('class', 'fas fa-trash icon');
-  document.getElementById(`icon-${this.id - 1}`).addEventListener('click', removeItem, false)
- const delIcon=document.getElementsByClassName(`fas fa-trash icon`);
- Array.from(delIcon).forEach(function(element) {
-  element.addEventListener('click', removeItem);
-});
+
 }

@@ -16,5 +16,14 @@ export function addItem(ev){
 }
 
 export function removeItem(){
-    console.log('remove')
+    if(this.querySelector('.fa-trash') !== null){
+        console.log(this.parentNode.id)
+        const listObj= new ToDoList();
+        listObj.getListItmes();
+        const filteredList= listObj.listItems.filter(item=>parseInt(item.index, 10) !==parseInt(this.parentNode.id, 10))
+        console.log(filteredList);
+        listObj.setListItems(filteredList)
+        location.reload();
+        return false;
+    }
 }
