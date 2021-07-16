@@ -16,5 +16,5 @@ export function addItem(ev){
 }
 
 export function removeItem(){
-    
+    console.log('remove')
 }

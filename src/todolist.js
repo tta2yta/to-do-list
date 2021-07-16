@@ -1,5 +1,5 @@
 import { unCheckComplete } from './checkstatus';
-import {addItem} from './addremove'
+import {addItem, removeItem} from './addremove'
 export default class ToDoList {
   constructor() {
     this.listItems = [];
@@ -102,4 +102,9 @@ export function activeList() {
   });
   document.getElementById(this.id).style.backgroundColor = '#fcf9f9';
   document.getElementById(`icon-${this.id - 1}`).setAttribute('class', 'fas fa-trash icon');
+  document.getElementById(`icon-${this.id - 1}`).addEventListener('click', removeItem, false)
+ const delIcon=document.getElementsByClassName(`fas fa-trash icon`);
+ Array.from(delIcon).forEach(function(element) {
+  element.addEventListener('click', removeItem);
+});
 }
