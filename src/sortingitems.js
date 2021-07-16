@@ -62,6 +62,7 @@ function addHandlers(elem) {
   elem.addEventListener('drop', dropHandler, false);
   elem.addEventListener('dragend', handleDragEnd, false);
   elem.addEventListener('click', activeList, false);
+  console.log(elem)
   if (elem.querySelector('.checkbox') !== null) {
     elem.querySelector('.checkbox').addEventListener('click', checkComplete, false);
   }

@@ -79,6 +79,7 @@ export default class ToDoList {
      textDesc.appendChild(t);
      listItem.appendChild(textDesc);
      const spanSvg=document.createElement('span')
+     spanSvg.className="spanSvg"
      const icon = document.createElement('svg');
      icon.id = `icon-${item.index - 1}`;
      icon.className = 'fas fa-ellipsis-v icon';
