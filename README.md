@@ -30,7 +30,7 @@ Todo JS is a JavaScript project that is intended to showcase an understanding of
 <li>Delete item </li>
 
 ## 🔴 Live Demo <a name = "live"></a>
-**Click [here](https://rawcdn.githack.com/tta2yta/to-do-list/e698cd6906340f13aa3d41a08671d303edf4341a/dist/index.html) in order to see a Live Demo of this project.**
+**Click [here](https://rawcdn.githack.com/tta2yta/to-do-list/5427fbc8f0aea8cde594b7daebc92fbe8a008445/dist/index.html) in order to see a Live Demo of this project.**
 
 
 ## 🔧 Built with<a name = "with"></a>
